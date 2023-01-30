@@ -1,0 +1,20 @@
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:24:02.862	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/gorm.go:67	register table success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:24:02.884	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:24:02.885	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:24:02.893	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:95	router register success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:24:02.893	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum-server run success on 	{"address": ":8889"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:38:53.050	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/gorm.go:67	register table success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:38:53.063	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:38:53.064	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:38:53.072	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:95	router register success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:38:53.072	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum-server run success on 	{"address": ":8889"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:56:01.426	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/gorm.go:67	register table success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:56:01.432	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:56:01.433	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:56:01.461	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:95	router register success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:56:01.462	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum-server run success on 	{"address": ":8889"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 22:02:05.783	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/gorm.go:67	register table success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 22:02:05.789	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 22:02:05.790	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 22:02:05.795	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:95	router register success
+[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 22:02:05.795	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum-server run success on 	{"address": ":8889"}
