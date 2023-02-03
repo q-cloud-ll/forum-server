@@ -95,3 +95,7 @@ func UpdateStarDetailFromRedisToMySQL(db *gorm.DB) (err error) {
 	}
 	return err
 }
+
+func sss() {
+
+}
