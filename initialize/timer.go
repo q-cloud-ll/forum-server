@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"fmt"
+	"forum-server/dao/redis"
 
 	"github.com/robfig/cron/v3"
 
@@ -29,5 +30,13 @@ func Timer() {
 				}
 			}(global.GVA_CONFIG.Timer.Detail[i])
 		}
+		go func() { // 每20min将redis的点赞信息更新进数据库
+			global.GVA_Timer.AddTaskByFunc("updateStarDetailFromRedisToMySQL", "@every 20m", func() {
+				err := redis.UpdateStarDetailFromRedisToMySQL(global.GVA_DB)
+				if err != nil {
+					fmt.Println("timer error:", err)
+				}
+			})
+		}()
 	}
 }

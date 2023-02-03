@@ -1,7 +1,6 @@
 package redis
 
 import (
-	"context"
 	"forum-server/global"
 	frmReq "forum-server/model/forum/request"
 	"strconv"
@@ -9,8 +8,6 @@ import (
 
 	"github.com/go-redis/redis/v8"
 )
-
-var ctx = context.Background()
 
 // FrmPostCreatePost 向redis存储帖子的key，做分数排行和时间排行
 func FrmPostCreatePost(postId, communityId int64) error {

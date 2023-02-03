@@ -11,6 +11,7 @@ import (
 type VoteService struct{}
 
 // FrmVotePost 帖子投票服务
-func (voteService *VoteService) FrmVotePost(userId uuid.UUID, v *frmReq.FrmVoteData) error {
-	return redis.FrmVotePost(userId.String(), strconv.Itoa(int(v.PostId)), float64(v.Direction))
+func (voteService *VoteService) FrmVotePost(userId uuid.UUID, v *frmReq.FrmVoteData) (err error) {
+	err = redis.FrmVotePost(userId.String(), strconv.FormatInt(v.PostId, 10), float64(v.Direction))
+	return err
 }
