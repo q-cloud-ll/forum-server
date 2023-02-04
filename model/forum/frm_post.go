@@ -16,6 +16,6 @@ type FrmPost struct {
 	Content     string    `json:"content" gorm:"type:longtext;comment:帖子内容"`
 	Title       string    `json:"title" gorm:"size:500l;comment:帖子标题"`
 	Type        int8      `json:"type" gorm:"size:5"`
-	LikeNum     uint32    `json:"like_num" gorm:"default:0"`
-	UnLikeNum   uint32    `json:"unLike_num" gorm:"default:0"`
+	LikeNum     int64     `json:"like_num" gorm:"bigint(20)"`
+	UnLikeNum   int64     `json:"unLike_num" gorm:"bigint(20)"`
 }

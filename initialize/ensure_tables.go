@@ -97,7 +97,7 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		forum.FrmComment{},
 		forum.FrmUser{},
 		forum.FrmCommunity{},
-		forum.FrmUserLike{},
+		forum.FrmUserStar{},
 	}
 	yes := true
 	for _, t := range tables {

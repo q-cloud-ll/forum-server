@@ -33,5 +33,5 @@ func getRedisKey(key string) string {
 
 // getVoteRedisKey 获取投票的key
 func getVoteRedisKey(postId string, userId string) string {
-	return userId + KeyPostVotedHSetPF + postId
+	return postId + KeyPostVotedHSetPF + userId
 }

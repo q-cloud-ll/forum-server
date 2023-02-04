@@ -1,8 +1,0 @@
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 15:07:19.277	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 16:01:57.992	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 16:15:05.524	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 19:22:04.500	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	net.Listen error: listen tcp :8889: bind: address already in use
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 19:24:22.028	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	net.Listen error: listen tcp :8889: bind: address already in use
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 19:32:45.366	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 19:40:01.682	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/05 - 20:26:19.664	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/api/v1/forum/frm_vote.go:31	投票失败	{"error": "投票时间已过"}

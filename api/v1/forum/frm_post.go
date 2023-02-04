@@ -54,12 +54,17 @@ func (postApi *PostApi) FrmPostGetPostList(c *gin.Context) {
 		return
 	}
 	// 将请求参数传入获取数据
-	data, err := postService.FrmPostGetPostList(p)
+	list, total, err := postService.FrmPostGetPostList(p)
 	if err != nil {
 		global.GVA_LOG.Error("获取帖子列表失败", zap.Error(err))
 		response.FailWithMessage(xerr.DB_ERROR, c)
 		return
 	}
 
-	response.OkWithData(data, c)
+	response.OkWithDetailed(response.PageResult{
+		List:     list,
+		Total:    total,
+		Page:     int(p.Page),
+		PageSize: int(p.PageSize),
+	}, "查询成功", c)
 }
