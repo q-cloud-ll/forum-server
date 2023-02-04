@@ -51,7 +51,6 @@ func FrmVotePost(userId, postId string, value float64) error {
 	} else {
 		op = -1
 	}
-
 	diff := math.Abs(ov - value)
 	pipeline := global.GVA_REDIS.TxPipeline()
 	// userId用户 -> postId帖子 -> value值（1，0，-1）,先判断用户是否对这个帖子投过票，现在这部分不是重复投票
@@ -67,12 +66,18 @@ func FrmVotePost(userId, postId string, value float64) error {
 		pipeline.HSet(ctx, getVoteRedisKey(postId, userId), fsd.UpdatedAt, time.Now().Format("2006-01-02 15:04:05"))
 	}
 	// 维护一个post_counter
-	if value > -1 {
-		if pipeline.Exists(ctx, getRedisKey(KeyPostLikedCounterHSetPF)).Val() < 1 {
-			pipeline.HSet(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId, op)
-		} else {
-			pipeline.HIncrBy(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId, int64(op))
-		}
+	var dif int64
+	if value == 1 {
+		dif = 1
+	} else if (value == 0 && ov != -1) || (value == -1 && ov == 1) {
+		dif = -1
+	} else {
+		dif = 0
+	}
+	if pipeline.HExists(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId).Val() {
+		pipeline.HSet(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId, dif)
+	} else {
+		pipeline.HIncrBy(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId, dif)
 	}
 	// 计算zset排行分值
 	pipeline.ZIncrBy(ctx, getRedisKey(KeyPostScoreZSet), op*diff*scorePerVote, postId)
@@ -147,5 +152,3 @@ func UpdateStarDetailFromRedisToMySQL(db *gorm.DB) (err error) {
 	}
 	return err
 }
-
-// 15019038027550720::8208f6ea-30b0-4f51-bd8e-0f0211b35197
