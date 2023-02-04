@@ -31,12 +31,15 @@ func Timer() {
 			}(global.GVA_CONFIG.Timer.Detail[i])
 		}
 		go func() { // 每20min将redis的点赞信息更新进数据库
-			global.GVA_Timer.AddTaskByFunc("updateStarDetailFromRedisToMySQL", "@every 20m", func() {
+			_, err := global.GVA_Timer.AddTaskByFunc("updateStarDetailFromRedisToMySQL", "@every 20m", func() {
 				err := redis.UpdateStarDetailFromRedisToMySQL(global.GVA_DB)
 				if err != nil {
 					fmt.Println("timer error:", err)
 				}
 			})
+			if err != nil {
+				fmt.Println("add timer error:", err)
+			}
 		}()
 	}
 }

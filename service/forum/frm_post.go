@@ -1,7 +1,6 @@
 package forum
 
 import (
-	"fmt"
 	"forum-server/dao/mysql"
 	"forum-server/dao/redis"
 	"forum-server/global"
@@ -32,42 +31,38 @@ func (ps *PostService) FrmPostCreatePost(p *forum.FrmPost) (err error) {
 }
 
 // FrmPostGetPostList 获取帖子列表服务
-func (ps *PostService) FrmPostGetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, err error) {
+func (ps *PostService) FrmPostGetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, total int64, err error) {
 	if p.CommunityID == 0 {
-		data, err = GetPostList(p)
+		data, total, err = GetPostList(p)
 	} else {
-		data, err = GetCommunityPostList(p)
+		data, total, err = GetCommunityPostList(p)
 	}
 	if err != nil {
 		global.GVA_LOG.Info("GetPostListService failed", zap.Error(err))
-		return nil, err
+		return nil, 0, err
 	}
 	return
 }
 
 // GetPostList 查询所有帖子并且获取帖子列表
-func GetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, err error) {
+func GetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, total int64, err error) {
 	// 根据排序获取帖子(时间/分数) id
 	ids, err := redis.FrmGetPostIdsInOrder(p)
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 	if len(ids) == 0 {
-		return nil, errors.Wrapf(err, "redis.FrmGetPostIdsInOrder(p) return 0 data")
+		return nil, 0, errors.New("redis.FrmGetPostIdsInOrder(p) return 0 data")
 	}
-
 	// 根据id获取帖子数据
 	posts, err := mysql.FrmGetPostListByIds(ids)
-	for _, post := range posts {
-		fmt.Println(post.PostId)
-	}
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 	// 根据id获取每篇帖子的投票数
 	voteData, err := redis.FrmGetPostVoteData(ids)
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 
 	// 获取作者数据和社区数据，组装每一篇帖子
@@ -100,30 +95,29 @@ func GetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, err error) 
 
 		data = append(data, postDetail)
 	}
-
+	total = int64(len(data))
 	return
 }
 
 // GetCommunityPostList 根据社区id获取帖子信息
-func GetCommunityPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, err error) {
+func GetCommunityPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, total int64, err error) {
 	// 根据社区id查询该社区下的所有帖子id，按排行或者按时间排序
 	ids, err := redis.FrmGetCommunityPostIdsInOrder(p)
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 	if len(ids) == 0 {
-		global.GVA_LOG.Info("FrmGetCommunityPostIdsInOrder return 0 data")
-		return
+		return nil, 0, errors.New("FrmGetCommunityPostIdsInOrder return 0 data")
 	}
 	// 根据查询到的帖子ids去数据库查询帖子信息，要按给定的id顺序返回帖子内容
 	posts, err := mysql.FrmGetPostListByIds(ids)
 	if err != nil {
-		return nil, err
+		return nil, 0, errors.New("redis.FrmGetCommunityPostIdsInOrder(p) return 0 data")
 	}
 	// 根据社区id查询社区的详细信息
 	voteData, err := redis.FrmGetPostVoteData(ids)
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 
 	// 将帖子的作者及分区信息查询出来填充到帖子中
@@ -154,6 +148,6 @@ func GetCommunityPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, er
 		}
 		data = append(data, postDetail)
 	}
-
+	total = int64(len(data))
 	return
 }

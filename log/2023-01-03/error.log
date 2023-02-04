@@ -1,3 +1,0 @@
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:27:45.693	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 21:55:16.503	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
-[github.com/flipped-aurora/gin-vue-admin/forum-server]2023/01/03 - 22:01:51.960	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
