@@ -8,6 +8,7 @@ import (
 	frmReq "forum-server/model/forum/request"
 	frmResp "forum-server/model/forum/response"
 	"forum-server/utils"
+	"strconv"
 
 	"go.uber.org/zap"
 
@@ -27,6 +28,40 @@ func (ps *PostService) FrmPostCreatePost(p *forum.FrmPost) (err error) {
 	}
 	// 将帖子ID和帖子类型保存进redis，后续取帖子列表用redis的数据结构
 	err = redis.FrmPostCreatePost(p.PostId, p.CommunityId)
+
+	return
+}
+
+// FrmPostDetail 获取帖子详情服务
+func (ps *PostService) FrmPostDetail(postId int64) (data *forum.FrmPostDetail, err error) {
+	post, err := mysql.FrmGetPostById(postId)
+	if err != nil {
+		global.GVA_LOG.Error("mysql.GetPostById(pid) failed",
+			zap.Int64("pid", postId),
+			zap.Error(err))
+		return
+	}
+	user, err := mysql.FrmGetUserById(post.AuthorId)
+	if err != nil {
+		global.GVA_LOG.Error("mysql.GetUserById(userId) failed",
+			zap.Any("user", post.AuthorId),
+			zap.Error(err))
+		return
+	}
+	community, err := mysql.FrmGetCommunityDetailById(post.CommunityId)
+	if err != nil {
+		global.GVA_LOG.Error("mysql.GetCommunityDetailById(post.CommunityId) failed",
+			zap.Int64("community_id", post.CommunityId),
+			zap.Error(err))
+	}
+	voteNum, err := GetPostVoteNum(strconv.FormatInt(post.PostId, 10))
+	data = &forum.FrmPostDetail{
+		VoteNum:      voteNum,
+		FrmPost:      post,
+		FrmUser:      user,
+		FrmCommunity: community,
+	}
+
 	return
 }
 
@@ -60,7 +95,7 @@ func GetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, total int64
 		return nil, 0, err
 	}
 	// 根据id获取每篇帖子的投票数
-	voteData, err := redis.FrmGetPostVoteData(ids)
+	voteData, err := FrmGetPostVoteData(ids)
 	if err != nil {
 		return nil, 0, err
 	}
@@ -96,7 +131,18 @@ func GetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, total int64
 		data = append(data, postDetail)
 	}
 	total = int64(len(data))
+
 	return
+}
+
+// FrmGetPostVoteData 获取投票数据
+func FrmGetPostVoteData(ids []string) (data []int64, err error) {
+	data = make([]int64, 0, len(ids))
+	for _, id := range ids {
+		v, _ := GetPostVoteNum(id)
+		data = append(data, v)
+	}
+	return data, err
 }
 
 // GetCommunityPostList 根据社区id获取帖子信息
@@ -115,7 +161,7 @@ func GetCommunityPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, to
 		return nil, 0, errors.New("redis.FrmGetCommunityPostIdsInOrder(p) return 0 data")
 	}
 	// 根据社区id查询社区的详细信息
-	voteData, err := redis.FrmGetPostVoteData(ids)
+	voteData, err := FrmGetPostVoteData(ids)
 	if err != nil {
 		return nil, 0, err
 	}
@@ -149,5 +195,6 @@ func GetCommunityPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, to
 		data = append(data, postDetail)
 	}
 	total = int64(len(data))
+
 	return
 }

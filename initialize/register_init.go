@@ -1,7 +1,6 @@
 package initialize
 
 import (
-	_ "forum-server/source/example"
 	_ "forum-server/source/system"
 )
 

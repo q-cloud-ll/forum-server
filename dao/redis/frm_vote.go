@@ -135,7 +135,7 @@ func UpdateStarDetailFromRedisToMySQL(db *gorm.DB) (err error) {
 					Updates(forum.FrmStarDetail{Status: int8(status),
 						UpdatedAt: utils.TimeStringToGoTime(f.UpdatedAt, utils.TimeTemplates)})
 			}
-			//pipeline.Del(ctx, getVoteRedisKey(postId, userId))
+			global.GVA_REDIS.Del(ctx, getVoteRedisKey(postId, userId))
 			// 将点赞数量更新进mysql
 			db.Table("frm_posts").
 				Select("like_num").
@@ -150,5 +150,13 @@ func UpdateStarDetailFromRedisToMySQL(db *gorm.DB) (err error) {
 			global.GVA_REDIS.HSet(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId, 0)
 		}
 	}
+	global.GVA_LOG.Info("定时任务执行完成")
 	return err
+}
+
+// FrmGetVoteNum 获取缓存中的点赞数量
+func FrmGetVoteNum(postId string) (likeNum int64, err error) {
+	num, err := global.GVA_REDIS.HGet(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId).Result()
+	likeNum, _ = strconv.ParseInt(num, 10, 64)
+	return likeNum, err
 }

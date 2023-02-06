@@ -2,7 +2,6 @@ package initialize
 
 import (
 	"context"
-	"forum-server/model/example"
 	"forum-server/model/forum"
 	sysModel "forum-server/model/system"
 	"forum-server/service/system"
@@ -52,11 +51,6 @@ func (e *ensureTables) MigrateTable(ctx context.Context) (context.Context, error
 		sysModel.SysAutoCode{},
 
 		adapter.CasbinRule{},
-
-		example.ExaFile{},
-		example.ExaCustomer{},
-		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{},
 	}
 	for _, t := range tables {
 		_ = db.AutoMigrate(&t)
@@ -87,11 +81,6 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		sysModel.SysAutoCode{},
 
 		adapter.CasbinRule{},
-
-		example.ExaFile{},
-		example.ExaCustomer{},
-		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{},
 
 		forum.FrmPost{},
 		forum.FrmComment{},
