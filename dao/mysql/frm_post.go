@@ -38,9 +38,18 @@ func FrmGetPostListByIds(ids []string) (postList []*forum.FrmPost, err error) {
 func FrmGetUserById(uuid uuid.UUID) (user *forum.FrmUser, err error) {
 	var u *forum.FrmUser
 	err = global.GVA_DB.Table("frm_users").
-		Select("user_id, nickname").
+		Select("user_id, nickname, avatar").
 		Where("user_id = ?", uuid).
 		Find(&u).
 		Error
 	return u, err
+}
+
+// FrmGetPostById 根据帖子
+func FrmGetPostById(pid int64) (post *forum.FrmPost, err error) {
+	err = global.GVA_DB.Table("frm_posts").
+		Select("post_id, content, like_num, author_id, title,community_id,created_at").
+		Where("post_id = ?", pid).
+		Find(&post).Error
+	return
 }

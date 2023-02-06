@@ -19,3 +19,11 @@ type FrmPost struct {
 	LikeNum     int64     `json:"like_num" gorm:"bigint(20)"`
 	UnLikeNum   int64     `json:"unLike_num" gorm:"bigint(20)"`
 }
+
+// FrmPostDetail 帖子详情
+type FrmPostDetail struct {
+	VoteNum       int64 `json:"vote_num"`
+	*FrmPost      `json:"post"`
+	*FrmUser      `json:"user"`
+	*FrmCommunity `json:"community"`
+}

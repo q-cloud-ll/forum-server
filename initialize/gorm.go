@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"forum-server/global"
-	"forum-server/model/example"
 	"forum-server/model/system"
 
 	"go.uber.org/zap"
@@ -43,12 +42,6 @@ func RegisterTables(db *gorm.DB) {
 		system.SysBaseMenuBtn{},
 		system.SysAuthorityBtn{},
 		system.SysAutoCode{},
-
-		// 示例模块表
-		example.ExaFile{},
-		example.ExaCustomer{},
-		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{},
 
 		// 论坛表
 		forum.FrmUser{},

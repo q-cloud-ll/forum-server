@@ -13,11 +13,11 @@ const secret = "forum-server:qll"
 // CheckUserExist 检查指定用户名的用户是否存在
 func CheckUserExist(username string) (err error) {
 	var count int64
-
-	if err = global.GVA_DB.Table("frm_users").Where("username=?", username).Count(&count).Error; err != nil {
+	if err = global.GVA_DB.Table("frm_users").
+		Where("username=?", username).
+		Count(&count).Error; err != nil {
 		return err
 	}
-
 	if count > 0 {
 		return ErrorUserExists
 	}
@@ -28,6 +28,7 @@ func CheckUserExist(username string) (err error) {
 func InsertUser(u *forum.FrmUser) (err error) {
 	u.Password = utils.BcryptHash(u.Password)
 	err = global.GVA_DB.Table("frm_users").Create(&u).Error
+
 	return err
 }
 
