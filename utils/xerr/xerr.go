@@ -8,4 +8,7 @@ const (
 	TOKEN_GENERATE_ERROR          = "生成token失败"
 	DB_ERROR                      = "数据库繁忙,请稍后再试"
 	DB_UPDATE_AFFECTED_ZERO_ERROR = "更新数据影响行数为0"
+
+	QRCodeGetFailErr = "生成二维码失败"
+	QRCodeRetryErr   = "扫描二维码失败"
 )

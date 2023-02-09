@@ -21,4 +21,5 @@ var (
 
 	CreatePostVerify = Rules{"CommunityId": {NotEmpty()}, "Content": {NotEmpty()}, "Title": {NotEmpty()}}
 	VotePostVerify   = Rules{"PostId": {NotEmpty()}}
+	CreateComment    = Rules{"Content": {NotEmpty()}}
 )

@@ -3,6 +3,7 @@ package mysql
 import (
 	"forum-server/global"
 	"forum-server/model/forum"
+	"forum-server/model/forum/response"
 
 	"gorm.io/gorm"
 )
@@ -18,4 +19,15 @@ func FrmGetCommunityDetailById(id int64) (community *forum.FrmCommunity, err err
 		}
 	}
 	return cd, err
+}
+
+// FrmGetCommunityInfo 根据参数获取社区信息
+func FrmGetCommunityInfo(communityID int64) (data []response.FrmCommunityInfo, err error) {
+	db := global.GVA_DB
+	if communityID == 0 {
+		err = db.Table("frm_communities").Find(&data).Error
+	} else {
+		err = db.Table("frm_communities").Where("community_id = ?", communityID).Find(&data).Error
+	}
+	return
 }

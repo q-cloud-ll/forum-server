@@ -76,6 +76,8 @@ func Routers() *gin.Engine {
 		// 公共路由不走鉴权
 		forumRouter.InitUserRouter(PublicGroup)
 		forumRouter.InitPostRouterPublic(PublicGroup)
+		forumRouter.InitQRCodeRouterPublic(PublicGroup)
+		forumRouter.InitCommunityRouterPublic(PublicGroup)
 	}
 
 	// 业务路由组，不走casbin
@@ -85,6 +87,7 @@ func Routers() *gin.Engine {
 		// 鉴权之后路由
 		forumRouter.InitPostRouter(myPrivateGroup)
 		forumRouter.InitVoteRouter(myPrivateGroup)
+		forumRouter.InitCommentRouter(myPrivateGroup)
 	}
 	InstallPlugin(Router) // 安装插件
 

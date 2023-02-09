@@ -10,7 +10,7 @@ jwt:
 zap:
   level: info
   format: console
-  prefix: "[github.com/flipped-aurora/gin-vue-admin/forum-server]"
+  prefix: "[forum-server]"
   director: log
   show-line: true
   encode-level: LowercaseColorLevelEncoder
@@ -20,8 +20,8 @@ zap:
 # redis configuration
 redis:
   db: 0
-  addr: 127.0.0.1:6379
-  password: ""
+  addr: 124.221.205.130:6379
+  password: "forum123"
 
 # email configuration
 email:
@@ -55,12 +55,12 @@ captcha:
 # mysql connect configuration
 # 未初始化之前请勿手动修改数据库信息！！！如果一定要手动初始化请看（https://gin-vue-admin.com/docs/first_master）
 mysql:
-  path: "127.0.0.1"
+  path: "124.221.205.130"
   port: "3306"
   config: "charset=utf8mb4&parseTime=true&loc=Local"
   db-name: "forum_server"
   username: "root"
-  password: "11223344"
+  password: "123456"
   max-idle-conns: 10
   max-open-conns: 100
   log-mode: "debug"
@@ -205,3 +205,6 @@ cors:
 snowflake:
   start-time: "2022-12-24"
   machine-id: 1
+
+# 微信扫码登录
+wechat:

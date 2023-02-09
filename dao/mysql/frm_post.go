@@ -16,6 +16,17 @@ func FrmPostCreatePost(p *forum.FrmPost) (err error) {
 		Error
 }
 
+// FrmJudgeCommunityIsExist 判断社区是否存在
+func FrmJudgeCommunityIsExist(communityId int64) (isExists bool, err error) {
+	var total int64
+	err = global.GVA_DB.Table("frm_communities").Select("community_id").Where("community_id = ?", communityId).Count(&total).Error
+	if total == 0 {
+		return true, err
+	} else {
+		return false, err
+	}
+}
+
 // FrmGetPostListByIds 通过ids查询帖子列表
 func FrmGetPostListByIds(ids []string) (postList []*forum.FrmPost, err error) {
 	var list []*forum.FrmPost

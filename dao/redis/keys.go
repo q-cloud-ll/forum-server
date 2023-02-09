@@ -22,6 +22,8 @@ const (
 	KeyPostLikedSetPF         = "post:liked:"  // 放所有被点赞的帖子
 	KeyPostLikedCounterHSetPF = "post:counter" // 储存每个帖子的counter
 
+	KeyQRCodeScanTicket = "qrcode:ticket:"
+
 	oneWeekInSeconds = 7 * 24 * 3600
 	scorePerVote     = 432 // 每一票值多少分
 )
@@ -34,4 +36,9 @@ func getRedisKey(key string) string {
 // getVoteRedisKey 获取投票的key
 func getVoteRedisKey(postId string, userId string) string {
 	return postId + KeyPostVotedHSetPF + userId
+}
+
+// getQRTicketKey 获取ticket key
+func getQRTicketKey(mTicket string) string {
+	return getRedisKey(KeyQRCodeScanTicket) + mTicket
 }

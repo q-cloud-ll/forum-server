@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"context"
+	"os"
 
 	"forum-server/global"
 
@@ -19,6 +20,8 @@ func Redis() {
 	pong, err := client.Ping(context.Background()).Result()
 	if err != nil {
 		global.GVA_LOG.Error("redis connect ping failed, err:", zap.Error(err))
+		os.Exit(0)
+		return
 	} else {
 		global.GVA_LOG.Info("redis connect ping response:", zap.String("pong", pong))
 		global.GVA_REDIS = client

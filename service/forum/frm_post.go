@@ -22,13 +22,16 @@ func (ps *PostService) FrmPostCreatePost(p *forum.FrmPost) (err error) {
 	// 获取雪花算法的uid
 	p.PostId = utils.GenID()
 	// 将发表的帖子内容保存进数据库
+	isExist, err := mysql.FrmJudgeCommunityIsExist(p.CommunityId)
+	if isExist {
+		return errors.New("该社区不存在")
+	}
 	err = mysql.FrmPostCreatePost(p)
 	if err != nil {
 		return err
 	}
 	// 将帖子ID和帖子类型保存进redis，后续取帖子列表用redis的数据结构
 	err = redis.FrmPostCreatePost(p.PostId, p.CommunityId)
-
 	return
 }
 
