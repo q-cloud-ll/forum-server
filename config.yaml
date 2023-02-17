@@ -2,10 +2,10 @@
 
 # jwt configuration
 jwt:
-  signing-key: qllisverycool
+  signing-key: forumtoken
   expires-time: 7d
   buffer-time: 1d
-  issuer: qll
+  issuer: qllforum
 # zap logger configuration
 zap:
   level: info
@@ -208,3 +208,6 @@ snowflake:
 
 # 微信扫码登录
 wechat:
+  app_id: wxf8a6d019d8ac598a
+  app_secret: 259c8ecf6fe6962b8ae8ae02fd532276
+  token: forumtoken

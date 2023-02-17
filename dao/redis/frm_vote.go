@@ -157,6 +157,9 @@ func UpdateStarDetailFromRedisToMySQL(db *gorm.DB) (err error) {
 // FrmGetVoteNum 获取缓存中的点赞数量
 func FrmGetVoteNum(postId string) (likeNum int64, err error) {
 	num, err := global.GVA_REDIS.HGet(ctx, getRedisKey(KeyPostLikedCounterHSetPF), postId).Result()
+	if num == "" {
+		return 0, nil
+	}
 	likeNum, _ = strconv.ParseInt(num, 10, 64)
 	return likeNum, err
 }

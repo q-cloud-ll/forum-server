@@ -1,7 +1,6 @@
 package forum
 
 import (
-	"fmt"
 	"forum-server/global"
 	"forum-server/model/common/response"
 	"forum-server/utils/xerr"
@@ -30,6 +29,6 @@ func (ca *CommunityApi) FrmGetCommunityInfo(c *gin.Context) {
 		response.FailWithMessage("获取社区信息失败", c)
 		return
 	}
-	fmt.Println(data, "231")
+
 	response.OkWithDetailed(data, "获取社区信息成功", c)
 }

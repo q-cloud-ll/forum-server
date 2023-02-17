@@ -78,6 +78,7 @@ func Routers() *gin.Engine {
 		forumRouter.InitPostRouterPublic(PublicGroup)
 		forumRouter.InitQRCodeRouterPublic(PublicGroup)
 		forumRouter.InitCommunityRouterPublic(PublicGroup)
+		forumRouter.InitCommentRouterPublic(PublicGroup)
 	}
 
 	// 业务路由组，不走casbin

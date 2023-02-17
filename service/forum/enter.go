@@ -5,6 +5,6 @@ type ServiceGroup struct {
 	PostService
 	VoteService
 	CommentService
-	QRCodeService
+	WeChatService
 	CommunityService
 }

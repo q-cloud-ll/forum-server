@@ -1,14 +1,15 @@
 package mysql
 
 import (
-	"crypto/md5"
-	"encoding/hex"
+	"fmt"
 	"forum-server/global"
 	"forum-server/model/forum"
 	"forum-server/utils"
+
+	uuid "github.com/satori/go.uuid"
 )
 
-const secret = "forum-server:qll"
+//const secret = "forum-server:qll"
 
 // CheckUserExist 检查指定用户名的用户是否存在
 func CheckUserExist(username string) (err error) {
@@ -32,9 +33,45 @@ func InsertUser(u *forum.FrmUser) (err error) {
 	return err
 }
 
-func encryptPassword(oPassword string) string {
-	h := md5.New()
-	h.Write([]byte(secret))
+//
+//func encryptPassword(oPassword string) string {
+//	h := md5.New()
+//	h.Write([]byte(secret))
+//
+//	return hex.EncodeToString(h.Sum([]byte(oPassword)))
+//}
 
-	return hex.EncodeToString(h.Sum([]byte(oPassword)))
+// FrmGetUserById 根据uuid查询用户信息
+func FrmGetUserById(uuid uuid.UUID) (user *forum.FrmUser, err error) {
+	var u *forum.FrmUser
+	err = global.GVA_DB.Table("frm_users").
+		Select("user_id, nickname, avatar").
+		Where("user_id = ?", uuid).
+		Find(&u).
+		Error
+	return u, err
+}
+
+// FrmGetUserInfoById 根据uid查询用户信息
+func FrmGetUserInfoById(uid string) (user *forum.FrmUserInfo, err error) {
+	var u *forum.FrmUserInfo
+	err = global.GVA_DB.Table("frm_users").
+		Select("nickname, avatar").
+		Where("user_id = ?", uid).
+		Find(&u).
+		Error
+	return u, err
+}
+
+// FrmGetUserInfoByCommentId 根据uid查询用户信息
+func FrmGetUserInfoByCommentId(commentId int64) (user *forum.FrmUserInfo, err error) {
+	var u *forum.FrmUserInfo
+	err = global.GVA_DB.Table("frm_comments fc").
+		Select("fu.nickname as nickname, fu.avatar as avatar, fu.user_id as user_id").
+		Joins("join frm_users fu on fu.user_id = fc.user_id").
+		Where("fc.comment_id = ?", commentId).
+		Find(&u).
+		Error
+	fmt.Println(u.Nickname, u.Avatar)
+	return u, err
 }

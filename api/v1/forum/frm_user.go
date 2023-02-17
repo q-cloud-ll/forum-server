@@ -42,7 +42,6 @@ func (userApi *UserApi) FrmUserLogin(c *gin.Context) {
 		response.FailWithMessage(xerr.REUQEST_PARAM_ERROR, c)
 		return
 	}
-
 	user, err := userService.FrmUserLogin(&login)
 	if err != nil {
 		global.GVA_LOG.Error("用户名不存在或密码错误", zap.Error(err))

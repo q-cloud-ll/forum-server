@@ -32,3 +32,8 @@ type FrmUser struct {
 	Location    string     `json:"location"   gorm:"size:500"`
 	School      string     `json:"school"   gorm:"size:500"`
 }
+
+type UserInfo struct {
+	NickName string `json:"nickname"`
+	Avatar   string `json:"avatar"`
+}

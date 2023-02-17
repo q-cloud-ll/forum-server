@@ -50,7 +50,7 @@ func (postApi *PostApi) FrmPostGetPostList(c *gin.Context) {
 	}
 	// 参数校验
 	if err := c.ShouldBindQuery(p); err != nil {
-		global.GVA_LOG.Error("FrmPostGetPostList with invalid query", zap.Error(err))
+		global.GVA_LOG.Error("FrmPostGetPostList with invalid query,err:", zap.Error(err))
 		response.FailWithMessage(xerr.REUQEST_PARAM_ERROR, c)
 		return
 	}

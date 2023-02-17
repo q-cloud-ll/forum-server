@@ -8,7 +8,7 @@ import (
 
 // FrmCommunityInfo 社区信息
 type FrmCommunityInfo struct {
-	CommunityId   int64          `json:"community_id"`
+	CommunityId   string         `json:"community_id"`
 	CommunityName string         `json:"community_name"`
 	Introduction  string         `json:"introduction,omitempty"`
 	CreatedAt     time.Time      `json:"created_at"` // 创建时间

@@ -5,8 +5,6 @@ import (
 	"forum-server/model/forum"
 
 	"gorm.io/gorm/clause"
-
-	uuid "github.com/satori/go.uuid"
 )
 
 // FrmPostCreatePost 插入帖子数据
@@ -43,17 +41,6 @@ func FrmGetPostListByIds(ids []string) (postList []*forum.FrmPost, err error) {
 		Find(&list).
 		Error
 	return list, err
-}
-
-// FrmGetUserById 根据uuid查询用户信息
-func FrmGetUserById(uuid uuid.UUID) (user *forum.FrmUser, err error) {
-	var u *forum.FrmUser
-	err = global.GVA_DB.Table("frm_users").
-		Select("user_id, nickname, avatar").
-		Where("user_id = ?", uuid).
-		Find(&u).
-		Error
-	return u, err
 }
 
 // FrmGetPostById 根据帖子

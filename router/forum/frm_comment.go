@@ -14,13 +14,16 @@ func (p *CommentRouter) InitCommentRouter(router *gin.RouterGroup) {
 	frmCommentApi := v1.ApiGroupApp.ForumApiGroup.CommentApi
 	{
 		commentRouter.POST("createComment", frmCommentApi.FrmCreateComment)
+		commentRouter.POST("starComment", frmCommentApi.FrmStarComment)
+		commentRouter.GET("getCommentList", frmCommentApi.FrmGetPostCommentList)
 	}
 }
 
 // InitCommentRouterPublic 公共路由
 func (p *CommentRouter) InitCommentRouterPublic(router *gin.RouterGroup) {
-	//commentRouter := router.Group("comment")
-	//frmCommentApi := v1.ApiGroupApp.ForumApiGroup.CommentApi
-	//{
-	//}
+	commentRouter := router.Group("comment")
+	frmCommentApi := v1.ApiGroupApp.ForumApiGroup.CommentApi
+	{
+		commentRouter.GET("getCdCommentList", frmCommentApi.FrmGetChildrenCommentList)
+	}
 }

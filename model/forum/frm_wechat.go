@@ -20,3 +20,11 @@ type FrmWXAppConfig struct {
 	AppSecret string `json:"app_secret"`
 	Token     string `json:"token"`
 }
+
+type FrmWxTokenMessages struct {
+	Ticket  string `json:"ticket"`
+	Url     string `json:"url"`
+	StrData string `json:"str_data"`
+	ErrMsg  string `json:"err_msg"`
+	ErrCode int    `json:"err_code"`
+}

@@ -1,55 +1,66 @@
 package forum
 
 import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"errors"
 	"fmt"
 	"forum-server/dao/redis"
 	"forum-server/global"
 	"forum-server/model/forum"
+	"forum-server/utils/tool"
+	"io/ioutil"
+	"net/http"
 
 	"go.uber.org/zap"
-
-	"github.com/gin-gonic/gin"
-	uuid "github.com/satori/go.uuid"
 )
 
-type QRCodeService struct{}
+type WeChatService struct{}
 
 // FrmGenerateQRCode 生成二维码
-func (qrs *QRCodeService) FrmGenerateQRCode(c *gin.Context) (qrInfo *forum.FrmQRCodeInfo, err error) {
-	// 获取uuid
-	mTicket := uuid.NewV4().String()
-	qrCodeUrl := fmt.Sprintf("http://127.0.0.1:8889/api/qrcode/scanLogin?mticket=%s", mTicket)
-
-	authInfo := &forum.AuthInfo{
-		Token:  "",
-		Status: 0,
-	}
-	err = redis.FrmGenQRCode(mTicket, authInfo)
+func (qrs *WeChatService) FrmGenerateQRCode(token string) (mes forum.FrmWxTokenMessages, err error) {
+	post := `{
+	"expire_seconds":300,
+	"action_name": "QR_LIMIT_STR_SCENE",
+		"action_info": {
+		"scene": {
+			"scene_str": "%s"
+			}
+		}
+	}`
+	str := tool.Krand(16, tool.KC_RAND_KIND_ALL)
+	_, err = redis.FrmGetWxSceneStr(str)
 	if err != nil {
-		global.GVA_LOG.Error("redis.FrmGenQRCode save qrcode info failed, err:", zap.Error(err))
-		return nil, err
+		_ = redis.FrmSetWxSceneStr(str)
+		getTicketReq := fmt.Sprintf(post, str)
+		var ticket forum.FrmWxTokenMessages
+		var jsonTicketReq = []byte(getTicketReq)
+		buffer := bytes.NewBuffer(jsonTicketReq)
+		request, err := http.NewRequest("POST", "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token="+token, buffer)
+		if err != nil {
+			global.GVA_LOG.Error("http.NewRequest failed,err:", zap.Error(err))
+			return ticket, err
+		}
+		cli := http.Client{}
+		resp, err := cli.Do(request.WithContext(context.TODO()))
+		if err != nil {
+			global.GVA_LOG.Error("cli.Do failed,err:", zap.Error(err))
+			return ticket, err
+		}
+		respBytes, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			global.GVA_LOG.Error("ioutil.ReadAll failed,err:", zap.Error(err))
+			return ticket, err
+		}
+		err = json.Unmarshal(respBytes, &ticket)
+		if err != nil {
+			global.GVA_LOG.Error("json.Unmarshal failed,err:", zap.Error(err))
+			return ticket, err
+		}
+		ticket.StrData = str
+		return ticket, nil
+	} else {
+		return forum.FrmWxTokenMessages{}, errors.New("请重新请求")
 	}
-
-	c.SetCookie("m_ticket", mTicket, 3*60, "/", "localhost", true, true)
-
-	qrCodeInfo := &forum.FrmQRCodeInfo{
-		CodeUrl: qrCodeUrl,
-	}
-
-	return qrCodeInfo, err
 }
-
-//func (qrs *QRCodeService) FrmScanLogin(c *gin.Context) (err error) {
-//	mTicket := c.Query("m_ticket")
-//	if mTicket == "" {
-//		global.GVA_LOG.Error("c.Query('m_ticket') failed")
-//		return errors.New(xerr.QRCodeRetryErr)
-//	}
-//
-//	res, err := redis.FrmScanLogin(mTicket)
-//	if err != nil {
-//		global.GVA_LOG.Error("redis.FrmScanLogin(mTicket) get failed, err:", zap.Error(err))
-//		return errors.New(xerr.QRCodeRetryErr)
-//	}
-//
-//}

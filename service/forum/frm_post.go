@@ -126,6 +126,7 @@ func GetPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, total int64
 		// 将得到的数据组装
 		postDetail := &frmResp.FrmPostDetail{
 			AuthorName:   user.Nickname,
+			Avatar:       user.Avatar,
 			VoteNum:      voteData[idx],
 			FrmPost:      post,
 			FrmCommunity: community,
@@ -191,6 +192,7 @@ func GetCommunityPostList(p *frmReq.PostList) (data []*frmResp.FrmPostDetail, to
 		// 将数据组装起来
 		postDetail := &frmResp.FrmPostDetail{
 			AuthorName:   user.Nickname,
+			Avatar:       user.Avatar,
 			VoteNum:      voteData[idx],
 			FrmPost:      post,
 			FrmCommunity: community,

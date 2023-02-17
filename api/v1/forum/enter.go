@@ -7,7 +7,7 @@ type ApiGroup struct {
 	PostApi
 	VoteApi
 	CommentApi
-	QRCodeApi
+	WeChatApi
 	CommunityApi
 }
 
@@ -16,6 +16,6 @@ var (
 	postService      = service.ServiceGroupApp.ForumServiceGroup.PostService
 	voteService      = service.ServiceGroupApp.ForumServiceGroup.VoteService
 	commentService   = service.ServiceGroupApp.ForumServiceGroup.CommentService
-	qrcodeService    = service.ServiceGroupApp.ForumServiceGroup.QRCodeService
+	wechatService    = service.ServiceGroupApp.ForumServiceGroup.WeChatService
 	communityService = service.ServiceGroupApp.ForumServiceGroup.CommunityService
 )

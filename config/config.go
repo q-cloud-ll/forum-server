@@ -30,4 +30,7 @@ type Server struct {
 
 	// 雪花算法
 	Snowflake SnowFlake `mapstructure:"snowflake" json:"snowflake" yaml:"snowflake"`
+
+	// 微信配置
+	WeChat WeChat `mapstructure:"wechat" json:"wechat" yaml:"wechat"`
 }

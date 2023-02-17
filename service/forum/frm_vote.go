@@ -1,7 +1,6 @@
 package forum
 
 import (
-	"fmt"
 	"forum-server/dao/mysql"
 	"forum-server/dao/redis"
 	frmReq "forum-server/model/forum/request"
@@ -21,7 +20,6 @@ func (vs *VoteService) FrmVotePost(userId uuid.UUID, v *frmReq.FrmVoteData) (err
 // GetPostVoteNum 获取帖子点赞数量
 func GetPostVoteNum(postId string) (likeNum int64, err error) {
 	cacheLikeNum, err := redis.FrmGetVoteNum(postId)
-	fmt.Println(cacheLikeNum)
 	dbNum, err := mysql.FrmPostVoteNum(postId)
 	return cacheLikeNum + dbNum, err
 }
