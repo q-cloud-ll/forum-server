@@ -1,8 +1,9 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/system/response"
+	"forum/global"
+	"forum/model/system/response"
+
 	"github.com/pkg/errors"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

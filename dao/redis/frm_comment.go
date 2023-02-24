@@ -1,8 +1,8 @@
 package redis
 
 import (
-	"forum-server/global"
-	frmReq "forum-server/model/forum/request"
+	"forum/global"
+	frmReq "forum/model/forum/request"
 	"math"
 	"strconv"
 	"time"

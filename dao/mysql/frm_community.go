@@ -1,9 +1,9 @@
 package mysql
 
 import (
-	"forum-server/global"
-	"forum-server/model/forum"
-	"forum-server/model/forum/response"
+	"forum/global"
+	"forum/model/forum"
+	"forum/model/forum/response"
 
 	"gorm.io/gorm"
 )

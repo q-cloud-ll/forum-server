@@ -1,8 +1,8 @@
 package sensitiveWord
 
 import (
-	"forum-server/global"
-	"forum-server/model/forum"
+	"forum/global"
+	"forum/model/forum"
 	"io/ioutil"
 	"os"
 	"strings"

@@ -2,10 +2,11 @@ package initialize
 
 import (
 	"fmt"
-	"forum-server/global"
-	"forum-server/middleware"
-	"forum-server/plugin/email"
-	"forum-server/utils/plugin"
+	"forum/global"
+	"forum/middleware"
+	"forum/plugin/email"
+	"forum/utils/plugin"
+
 	"github.com/gin-gonic/gin"
 )
 

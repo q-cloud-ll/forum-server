@@ -1,7 +1,7 @@
 package router
 
 import (
-	"forum-server/plugin/{{ .Snake}}/api"
+	"forum/plugin/{{ .Snake}}/api"
 	"github.com/gin-gonic/gin"
 )
 

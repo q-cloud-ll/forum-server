@@ -1,4 +1,4 @@
-# github.com/flipped-aurora/gin-vue-admin/forum-server Global Configuration
+# github.com/flipped-aurora/gin-vue-admin/forum Global Configuration
 
 # jwt configuration
 jwt:
@@ -10,7 +10,7 @@ jwt:
 zap:
   level: info
   format: console
-  prefix: "[forum-server]"
+  prefix: "[forum]"
   director: log
   show-line: true
   encode-level: LowercaseColorLevelEncoder
@@ -20,7 +20,7 @@ zap:
 # redis configuration
 redis:
   db: 0
-  addr: 124.221.205.130:6379
+  addr: 124.221.205.130:16379
   password: "forum123"
 
 # email configuration
@@ -38,7 +38,7 @@ system:
   env: public  # Change to "develop" to skip authentication for development mode
   addr: 8889
   db-type: mysql
-  oss-type: local    # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 forum-server/utils/upload/upload.go 中 NewOss函数配置
+  oss-type: local    # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 forum/utils/upload/upload.go 中 NewOss函数配置
   use-redis: true     # 使用redis
   use-multipoint: false
   # IP限制次数 一个小时15000次
@@ -56,11 +56,11 @@ captcha:
 # 未初始化之前请勿手动修改数据库信息！！！如果一定要手动初始化请看（https://gin-vue-admin.com/docs/first_master）
 mysql:
   path: "124.221.205.130"
-  port: "3306"
+  port: "13306"
   config: "charset=utf8mb4&parseTime=true&loc=Local"
   db-name: "forum_server"
   username: "root"
-  password: "123456"
+  password: "forum123"
   max-idle-conns: 10
   max-open-conns: 100
   log-mode: "debug"
@@ -107,7 +107,7 @@ autocode:
   # root 自动适配项目根目录
   # 请不要手动配置,他会在项目加载的时候识别出根路径
   root: ""
-  server: /forum-server
+  server: /forum
   server-plug: /plugin/%s
   server-api: /api/v1/%s
   server-initialize: /initialize
@@ -146,7 +146,7 @@ tencent-cos:
   secret-id: your-secret-id
   secret-key: your-secret-key
   base-url: https://gin.vue.admin
-  path-prefix: github.com/flipped-aurora/gin-vue-admin/forum-server
+  path-prefix: github.com/flipped-aurora/gin-vue-admin/forum
 
 # aws s3 configuration (minio compatible)
 aws-s3:
@@ -158,7 +158,7 @@ aws-s3:
   secret-id: your-secret-id
   secret-key: your-secret-key
   base-url: https://gin.vue.admin
-  path-prefix: github.com/flipped-aurora/gin-vue-admin/forum-server
+  path-prefix: github.com/flipped-aurora/gin-vue-admin/forum
 
 # huawei obs configuration
 hua-wei-obs:
@@ -185,7 +185,7 @@ Timer:
       interval: 168h
 
 # 跨域配置
-# 需要配合 forum-server/initialize/router.go#L32 使用
+# 需要配合 forum/initialize/router.go#L32 使用
 cors:
   mode: strict-whitelist # 放行模式: allow-all, 放行全部; whitelist, 白名单模式, 来自白名单内域名的请求添加 cors 头; strict-whitelist 严格白名单模式, 白名单外的请求一律拒绝
   whitelist:

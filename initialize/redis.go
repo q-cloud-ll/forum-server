@@ -4,7 +4,7 @@ import (
 	"context"
 	"os"
 
-	"forum-server/global"
+	"forum/global"
 
 	"github.com/go-redis/redis/v8"
 	"go.uber.org/zap"

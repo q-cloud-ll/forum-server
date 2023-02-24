@@ -1,6 +1,6 @@
 package response
 
-import "forum-server/model/system"
+import "forum/model/system"
 
 type SysAPIResponse struct {
 	Api system.SysApi `json:"api"`

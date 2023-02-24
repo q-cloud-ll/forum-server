@@ -1,9 +1,9 @@
 package forum
 
 import (
-	"forum-server/dao/mysql"
-	"forum-server/dao/redis"
-	frmReq "forum-server/model/forum/request"
+	"forum/dao/mysql"
+	"forum/dao/redis"
+	frmReq "forum/model/forum/request"
 	"strconv"
 
 	uuid "github.com/satori/go.uuid"

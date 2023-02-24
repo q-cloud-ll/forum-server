@@ -3,9 +3,9 @@ package redis
 import (
 	"errors"
 	"fmt"
-	"forum-server/global"
-	"forum-server/model/forum"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/forum"
+	"forum/utils"
 	"math"
 	"strconv"
 	"time"

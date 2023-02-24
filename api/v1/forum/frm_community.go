@@ -1,9 +1,9 @@
 package forum
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	"forum-server/utils/xerr"
+	"forum/global"
+	"forum/model/common/response"
+	"forum/utils/xerr"
 	"strconv"
 
 	"go.uber.org/zap"

@@ -3,7 +3,7 @@ package request
 import (
 	"fmt"
 
-	"forum-server/config"
+	"forum/config"
 )
 
 type InitDB struct {

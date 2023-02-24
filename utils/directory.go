@@ -4,7 +4,8 @@ import (
 	"errors"
 	"os"
 
-	"forum-server/global"
+	"forum/global"
+
 	"go.uber.org/zap"
 )
 

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"forum-server/model/common/request"
+	"forum/model/common/request"
 	"testing"
 )
 

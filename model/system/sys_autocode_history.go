@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"forum-server/global"
-	"forum-server/model/common/request"
+	"forum/global"
+	"forum/model/common/request"
 )
 
 // SysAutoCodeHistory 自动迁移代码记录,用于回滚,重放使用

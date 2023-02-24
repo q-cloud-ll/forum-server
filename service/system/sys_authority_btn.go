@@ -2,10 +2,11 @@ package system
 
 import (
 	"errors"
-	"forum-server/global"
-	"forum-server/model/system"
-	"forum-server/model/system/request"
-	"forum-server/model/system/response"
+	"forum/global"
+	"forum/model/system"
+	"forum/model/system/request"
+	"forum/model/system/response"
+
 	"gorm.io/gorm"
 )
 

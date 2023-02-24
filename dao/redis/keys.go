@@ -16,17 +16,20 @@ const (
 	KeyPostTimeZSet           = "post:time"    // zset;贴子及发帖时间
 	KeyPostScoreZSet          = "post:score"   // zset;贴子及投票的分数
 	KeyPostVotedZSetPF        = "post:voted:"  // zset;记录用户及投票类型;参数是post id
-	KeyCommunitySetPF         = "community:"   // set;保存每个分区下帖子的id
 	KeyPostLikedSetPF         = "post:liked:"  // 放所有被点赞的帖子
 	KeyPostLikedCounterHSetPF = "post:counter" // 储存每个帖子的counter
 
-	KeyVotedHSetPF = "::"
+	KeyCommunitySetPF = "community:" // set;保存每个分区下帖子的id
+	KeyVotedHSetPF    = "::"
 
 	KeyCommentTimeZSetPF         = "comment:time:"  // zset;评论及发帖时间
 	KeyCommentScoreZSetPF        = "comment:score:" // zset;评论及投票的分数
 	KeyCommentVotedZSetPF        = "comment:voted:" // zset;记录用户及投票类型;参数是comment id
 	KeyCommentChildrenNumSetPF   = "comment:children:"
 	KeyCommentLikedCounterHSetPF = "comment:counter" // 储存每个帖子的counter
+
+	KeyFollowersSetPF  = "followers:"
+	KeyFolloweesZsetPF = "followees:" // zset
 
 	KeyQRCodeTicket = "wxAccessToken"
 

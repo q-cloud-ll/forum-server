@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	"forum-server/global"
+	"forum/global"
 
 	"github.com/silenceper/wechat/v2"
 	"github.com/silenceper/wechat/v2/cache"

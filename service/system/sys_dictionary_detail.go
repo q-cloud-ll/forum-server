@@ -1,9 +1,9 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/system"
-	"forum-server/model/system/request"
+	"forum/global"
+	"forum/model/system"
+	"forum/model/system/request"
 )
 
 //@author: [piexlmax](https://github.com/piexlmax)

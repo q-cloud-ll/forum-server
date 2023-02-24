@@ -1,10 +1,11 @@
 package api
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	email_response "forum-server/plugin/email/model/response"
-	"forum-server/plugin/email/service"
+	"forum/global"
+	"forum/model/common/response"
+	email_response "forum/plugin/email/model/response"
+	"forum/plugin/email/service"
+
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

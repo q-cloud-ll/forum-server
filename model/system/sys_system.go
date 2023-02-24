@@ -1,7 +1,7 @@
 package system
 
 import (
-	"forum-server/config"
+	"forum/config"
 )
 
 // 配置文件结构体

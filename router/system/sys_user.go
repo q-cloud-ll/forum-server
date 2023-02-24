@@ -1,8 +1,9 @@
 package system
 
 import (
-	v1 "forum-server/api/v1"
-	"forum-server/middleware"
+	v1 "forum/api/v1"
+	"forum/middleware"
+
 	"github.com/gin-gonic/gin"
 )
 

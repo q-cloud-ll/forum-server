@@ -2,9 +2,10 @@ package system
 
 import (
 	"context"
-	sysModel "forum-server/model/system"
-	"forum-server/service/system"
-	"forum-server/utils"
+	sysModel "forum/model/system"
+	"forum/service/system"
+	"forum/utils"
+
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
 	"gorm.io/gorm"

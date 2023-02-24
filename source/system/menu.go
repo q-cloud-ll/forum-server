@@ -2,8 +2,9 @@ package system
 
 import (
 	"context"
-	. "forum-server/model/system"
-	"forum-server/service/system"
+	. "forum/model/system"
+	"forum/service/system"
+
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )

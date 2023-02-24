@@ -1,18 +1,18 @@
 package {{.Package}}
 
 import (
-	"forum-server/global"
-    "forum-server/model/{{.Package}}"
-    "forum-server/model/common/request"
-    {{.Package}}Req "forum-server/model/{{.Package}}/request"
-    "forum-server/model/common/response"
-    "forum-server/service"
+	"forum/global"
+    "forum/model/{{.Package}}"
+    "forum/model/common/request"
+    {{.Package}}Req "forum/model/{{.Package}}/request"
+    "forum/model/common/response"
+    "forum/service"
     "github.com/gin-gonic/gin"
     "go.uber.org/zap"
     {{- if .NeedValid }}
-    "forum-server/utils"
+    "forum/utils"
     {{- else if .AutoCreateResource}}
-    "forum-server/utils"
+    "forum/utils"
     {{- end }}
 )
 

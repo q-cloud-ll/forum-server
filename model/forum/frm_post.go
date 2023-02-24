@@ -1,7 +1,7 @@
 package forum
 
 import (
-	"forum-server/global"
+	"forum/global"
 
 	uuid "github.com/satori/go.uuid"
 )

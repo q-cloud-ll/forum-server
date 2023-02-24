@@ -1,13 +1,13 @@
 package forum
 
 import (
-	"forum-server/dao/mysql"
-	"forum-server/dao/redis"
-	"forum-server/global"
-	"forum-server/model/forum"
-	frmReq "forum-server/model/forum/request"
-	frmResp "forum-server/model/forum/response"
-	"forum-server/utils"
+	"forum/dao/mysql"
+	"forum/dao/redis"
+	"forum/global"
+	"forum/model/forum"
+	frmReq "forum/model/forum/request"
+	frmResp "forum/model/forum/response"
+	"forum/utils"
 	"strconv"
 
 	"go.uber.org/zap"

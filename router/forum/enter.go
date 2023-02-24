@@ -7,4 +7,5 @@ type RouterGroup struct {
 	CommentRouter
 	QRCodeRouter
 	CommunityRouter
+	FollowRouter
 }

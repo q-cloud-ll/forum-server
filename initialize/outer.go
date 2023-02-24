@@ -4,8 +4,8 @@ import (
 	"github.com/songzhibin97/gkit/cache/local_cache"
 	"go.uber.org/zap"
 
-	"forum-server/global"
-	"forum-server/utils"
+	"forum/global"
+	"forum/utils"
 )
 
 func OtherInit() {

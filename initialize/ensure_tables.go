@@ -2,9 +2,8 @@ package initialize
 
 import (
 	"context"
-	"forum-server/model/forum"
-	sysModel "forum-server/model/system"
-	"forum-server/service/system"
+	sysModel "forum/model/system"
+	"forum/service/system"
 
 	adapter "github.com/casbin/gorm-adapter/v3"
 	"gorm.io/gorm"
@@ -81,12 +80,6 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		sysModel.SysAutoCode{},
 
 		adapter.CasbinRule{},
-
-		forum.FrmPost{},
-		forum.FrmComment{},
-		forum.FrmUser{},
-		forum.FrmCommunity{},
-		forum.FrmUserStar{},
 	}
 	yes := true
 	for _, t := range tables {

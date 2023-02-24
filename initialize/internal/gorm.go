@@ -1,12 +1,14 @@
 package internal
 
 import (
-	"gorm.io/gorm/schema"
 	"log"
 	"os"
 	"time"
 
-	"forum-server/global"
+	"gorm.io/gorm/schema"
+
+	"forum/global"
+
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )

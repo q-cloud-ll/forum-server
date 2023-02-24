@@ -3,18 +3,18 @@ package system
 import (
 	"errors"
 	"fmt"
-	systemReq "forum-server/model/system/request"
+	systemReq "forum/model/system/request"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
 
-	"forum-server/model/system/response"
+	"forum/model/system/response"
 
-	"forum-server/global"
-	"forum-server/model/common/request"
-	"forum-server/model/system"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/common/request"
+	"forum/model/system"
+	"forum/utils"
 
 	"go.uber.org/zap"
 )

@@ -3,8 +3,8 @@ package wx
 import (
 	"crypto/sha1"
 	"encoding/hex"
-	"forum-server/dao/redis"
-	"forum-server/global"
+	"forum/dao/redis"
+	"forum/global"
 	"io/ioutil"
 	"net/http"
 	"sort"

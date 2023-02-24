@@ -1,7 +1,7 @@
 package forum
 
 import (
-	"forum-server/global"
+	"forum/global"
 	"time"
 )
 

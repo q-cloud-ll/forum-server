@@ -1,6 +1,6 @@
 package system
 
-import "forum-server/service"
+import "forum/service"
 
 type ApiGroup struct {
 	DBApi

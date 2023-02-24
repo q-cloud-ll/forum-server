@@ -1,8 +1,8 @@
 package router
 
 import (
-	"forum-server/router/forum"
-	"forum-server/router/system"
+	"forum/router/forum"
+	"forum/router/system"
 )
 
 type RouterGroup struct {

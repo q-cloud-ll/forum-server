@@ -2,13 +2,13 @@ package initialize
 
 import (
 	"fmt"
-	"forum-server/dao/redis"
+	"forum/dao/redis"
 
 	"github.com/robfig/cron/v3"
 
-	"forum-server/config"
-	"forum-server/global"
-	"forum-server/utils"
+	"forum/config"
+	"forum/global"
+	"forum/utils"
 )
 
 func Timer() {

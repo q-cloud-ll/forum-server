@@ -4,10 +4,11 @@ import (
 	"errors"
 	"strconv"
 
-	"forum-server/global"
-	"forum-server/model/common/request"
-	"forum-server/model/system"
-	"forum-server/model/system/response"
+	"forum/global"
+	"forum/model/common/request"
+	"forum/model/system"
+	"forum/model/system/response"
+
 	"gorm.io/gorm"
 )
 

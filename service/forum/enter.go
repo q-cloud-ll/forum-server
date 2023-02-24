@@ -7,4 +7,5 @@ type ServiceGroup struct {
 	CommentService
 	WeChatService
 	CommunityService
+	FollowService
 }

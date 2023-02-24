@@ -1,7 +1,7 @@
 package response
 
 import (
-	"forum-server/model/system/request"
+	"forum/model/system/request"
 )
 
 type PolicyPathResponse struct {

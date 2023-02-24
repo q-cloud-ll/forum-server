@@ -2,11 +2,11 @@ package forum
 
 import (
 	"fmt"
-	"forum-server/dao/redis"
-	"forum-server/global"
-	"forum-server/model/common/response"
-	"forum-server/utils/wx"
-	"forum-server/utils/xerr"
+	"forum/dao/redis"
+	"forum/global"
+	"forum/model/common/response"
+	"forum/utils/wx"
+	"forum/utils/xerr"
 
 	"github.com/gin-gonic/gin"
 	"github.com/silenceper/wechat/v2/officialaccount/message"

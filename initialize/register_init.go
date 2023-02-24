@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	_ "forum-server/source/system"
+	_ "forum/source/system"
 )
 
 func init() {

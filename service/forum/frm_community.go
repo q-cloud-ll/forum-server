@@ -1,9 +1,9 @@
 package forum
 
 import (
-	"forum-server/dao/mysql"
-	"forum-server/global"
-	"forum-server/model/forum/response"
+	"forum/dao/mysql"
+	"forum/global"
+	"forum/model/forum/response"
 
 	"go.uber.org/zap"
 )

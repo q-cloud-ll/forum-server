@@ -1,8 +1,9 @@
 package router
 
 import (
-	"forum-server/middleware"
-	"forum-server/plugin/email/api"
+	"forum/middleware"
+	"forum/plugin/email/api"
+
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,6 +1,6 @@
 package forum
 
-import "forum-server/service"
+import "forum/service"
 
 type ApiGroup struct {
 	UserApi
@@ -9,6 +9,7 @@ type ApiGroup struct {
 	CommentApi
 	WeChatApi
 	CommunityApi
+	FollowApi
 }
 
 var (
@@ -18,4 +19,5 @@ var (
 	commentService   = service.ServiceGroupApp.ForumServiceGroup.CommentService
 	wechatService    = service.ServiceGroupApp.ForumServiceGroup.WeChatService
 	communityService = service.ServiceGroupApp.ForumServiceGroup.CommunityService
+	followService    = service.ServiceGroupApp.ForumServiceGroup.FollowService
 )

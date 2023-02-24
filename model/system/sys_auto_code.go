@@ -5,7 +5,7 @@ import (
 	"go/token"
 	"strings"
 
-	"forum-server/global"
+	"forum/global"
 )
 
 // AutoCodeStruct 初始版本自动化代码工具

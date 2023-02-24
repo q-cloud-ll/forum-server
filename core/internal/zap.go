@@ -2,10 +2,11 @@ package internal
 
 import (
 	"fmt"
-	"forum-server/global"
+	"forum/global"
+	"time"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"time"
 )
 
 var Zap = new(_zap)

@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"forum-server/global"
+	"forum/global"
 	"time"
 )
 

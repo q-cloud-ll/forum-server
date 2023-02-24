@@ -1,10 +1,10 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/request"
-	"forum-server/model/system"
-	systemReq "forum-server/model/system/request"
+	"forum/global"
+	"forum/model/common/request"
+	"forum/model/system"
+	systemReq "forum/model/system/request"
 )
 
 //@author: [granty1](https://github.com/granty1)

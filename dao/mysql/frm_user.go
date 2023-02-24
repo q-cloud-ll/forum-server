@@ -2,14 +2,14 @@ package mysql
 
 import (
 	"fmt"
-	"forum-server/global"
-	"forum-server/model/forum"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/forum"
+	"forum/utils"
 
 	uuid "github.com/satori/go.uuid"
 )
 
-//const secret = "forum-server:qll"
+//const secret = "forum:qll"
 
 // CheckUserExist 检查指定用户名的用户是否存在
 func CheckUserExist(username string) (err error) {

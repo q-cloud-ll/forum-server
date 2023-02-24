@@ -1,8 +1,8 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/system/response"
+	"forum/global"
+	"forum/model/system/response"
 )
 
 var AutoCodeMysql = new(autoCodeMysql)

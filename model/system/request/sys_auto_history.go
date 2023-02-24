@@ -1,6 +1,6 @@
 package request
 
-import "forum-server/model/common/request"
+import "forum/model/common/request"
 
 type SysAutoHistory struct {
 	request.PageInfo

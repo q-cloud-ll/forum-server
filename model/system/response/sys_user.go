@@ -1,7 +1,7 @@
 package response
 
 import (
-	"forum-server/model/system"
+	"forum/model/system"
 )
 
 type SysUserResponse struct {

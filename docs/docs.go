@@ -4819,28 +4819,28 @@ var doc = `{
                 "root": {
                     "type": "string"
                 },
-                "forum-server": {
+                "forum": {
                     "type": "string"
                 },
-                "forum-server-api": {
+                "forum-api": {
                     "type": "string"
                 },
-                "forum-server-initialize": {
+                "forum-initialize": {
                     "type": "string"
                 },
-                "forum-server-model": {
+                "forum-model": {
                     "type": "string"
                 },
-                "forum-server-plug": {
+                "forum-plug": {
                     "type": "string"
                 },
-                "forum-server-request": {
+                "forum-request": {
                     "type": "string"
                 },
-                "forum-server-router": {
+                "forum-router": {
                     "type": "string"
                 },
-                "forum-server-service": {
+                "forum-service": {
                     "type": "string"
                 },
                 "transfer-restart": {

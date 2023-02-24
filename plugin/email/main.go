@@ -1,8 +1,9 @@
 package email
 
 import (
-	"forum-server/plugin/email/global"
-	"forum-server/plugin/email/router"
+	"forum/plugin/email/global"
+	"forum/plugin/email/router"
+
 	"github.com/gin-gonic/gin"
 )
 

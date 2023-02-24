@@ -1,8 +1,8 @@
 package service
 
 import (
-	"forum-server/service/forum"
-	"forum-server/service/system"
+	"forum/service/forum"
+	"forum/service/system"
 )
 
 type ServiceGroup struct {

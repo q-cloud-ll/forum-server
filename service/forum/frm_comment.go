@@ -2,13 +2,13 @@ package forum
 
 import (
 	"errors"
-	"forum-server/dao/mysql"
-	"forum-server/dao/redis"
-	"forum-server/global"
-	"forum-server/model/forum"
-	frmReq "forum-server/model/forum/request"
-	"forum-server/model/forum/response"
-	"forum-server/utils"
+	"forum/dao/mysql"
+	"forum/dao/redis"
+	"forum/global"
+	"forum/model/forum"
+	frmReq "forum/model/forum/request"
+	"forum/model/forum/response"
+	"forum/utils"
 	"strconv"
 
 	"go.uber.org/zap"
@@ -65,13 +65,8 @@ func (cs *CommentService) FrmGetPostCommentList(pc *frmReq.CommentList) (data []
 			continue
 		}
 		// 获取每个根评论的子评论数量
-		childrenNum, err := redis.FrmGetChildrenNum(comment.CommentId)
-		if err != nil {
-			//global.GVA_LOG.Info("redis.FrmGetChildrenNum(comment.CommentId) failed",
-			//	zap.Int64("comment_id", comment.CommentId),
-			//	zap.Error(err))
-			//continue
-		}
+		childrenNum, _ := redis.FrmGetChildrenNum(comment.CommentId)
+
 		star, _ := redis.FrmGetCommentStar(strconv.FormatInt(comment.CommentId, 10))
 
 		// 拼接数据

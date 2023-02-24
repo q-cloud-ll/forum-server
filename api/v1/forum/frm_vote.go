@@ -1,11 +1,11 @@
 package forum
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	frmReq "forum-server/model/forum/request"
-	"forum-server/utils"
-	"forum-server/utils/xerr"
+	"forum/global"
+	"forum/model/common/response"
+	frmReq "forum/model/forum/request"
+	"forum/utils"
+	"forum/utils/xerr"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

@@ -2,8 +2,8 @@ package utils
 
 import (
 	"fmt"
-	"forum-server/global"
-	"forum-server/model/system"
+	"forum/global"
+	"forum/model/system"
 	"strconv"
 )
 

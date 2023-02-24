@@ -1,6 +1,6 @@
 package initialize
 
-import "forum-server/utils"
+import "forum/utils"
 
 func init() {
 	_ = utils.RegisterRule("PageVerify",

@@ -1,8 +1,8 @@
 package forum
 
 import (
-	v1 "forum-server/api/v1"
-	"forum-server/global"
+	v1 "forum/api/v1"
+	"forum/global"
 
 	"github.com/gin-gonic/gin"
 )

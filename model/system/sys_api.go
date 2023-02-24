@@ -1,7 +1,7 @@
 package system
 
 import (
-	"forum-server/global"
+	"forum/global"
 )
 
 type SysApi struct {

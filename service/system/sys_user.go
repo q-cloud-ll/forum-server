@@ -3,10 +3,11 @@ package system
 import (
 	"errors"
 	"fmt"
-	"forum-server/global"
-	"forum-server/model/common/request"
-	"forum-server/model/system"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/common/request"
+	"forum/model/system"
+	"forum/utils"
+
 	uuid "github.com/satori/go.uuid"
 	"gorm.io/gorm"
 )

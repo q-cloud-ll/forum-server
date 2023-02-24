@@ -2,12 +2,13 @@ package core
 
 import (
 	"fmt"
-	"forum-server/core/internal"
-	"forum-server/global"
-	"forum-server/utils"
+	"forum/core/internal"
+	"forum/global"
+	"forum/utils"
+	"os"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"os"
 )
 
 // Zap 获取 zap.Logger

@@ -5,9 +5,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"forum-server/global"
-	"forum-server/model/system"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/system"
+	"forum/utils"
 )
 
 type JwtService struct{}

@@ -2,15 +2,16 @@ package system
 
 import (
 	"errors"
-	"forum-server/global"
-	"forum-server/model/system/request"
+	"forum/global"
+	"forum/model/system/request"
+	"strconv"
+	"sync"
+
 	"github.com/casbin/casbin/v2"
 	"github.com/casbin/casbin/v2/model"
 	gormadapter "github.com/casbin/gorm-adapter/v3"
 	_ "github.com/go-sql-driver/mysql"
 	"go.uber.org/zap"
-	"strconv"
-	"sync"
 )
 
 //@author: [piexlmax](https://github.com/piexlmax)

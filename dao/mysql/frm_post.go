@@ -1,8 +1,8 @@
 package mysql
 
 import (
-	"forum-server/global"
-	"forum-server/model/forum"
+	"forum/global"
+	"forum/model/forum"
 
 	"gorm.io/gorm/clause"
 )

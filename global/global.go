@@ -1,7 +1,7 @@
 package global
 
 import (
-	"forum-server/utils/timer"
+	"forum/utils/timer"
 	"sync"
 
 	"github.com/silenceper/wechat/v2/officialaccount"
@@ -10,7 +10,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"forum-server/config"
+	"forum/config"
 
 	"github.com/go-redis/redis/v8"
 	"github.com/spf13/viper"

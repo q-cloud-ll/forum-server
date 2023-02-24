@@ -1,6 +1,6 @@
 package mysql
 
-import "forum-server/global"
+import "forum/global"
 
 // FrmPostVoteNum 获取帖子投票数量
 func FrmPostVoteNum(postId string) (likeNum int64, err error) {

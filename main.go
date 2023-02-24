@@ -3,9 +3,9 @@ package main
 import (
 	"go.uber.org/zap"
 
-	"forum-server/core"
-	"forum-server/global"
-	"forum-server/initialize"
+	"forum/core"
+	"forum/global"
+	"forum/initialize"
 )
 
 //go:generate go env -w GO111MODULE=on

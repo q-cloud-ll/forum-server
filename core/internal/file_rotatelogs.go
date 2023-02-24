@@ -1,12 +1,13 @@
 package internal
 
 import (
-	"forum-server/global"
-	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
-	"go.uber.org/zap/zapcore"
+	"forum/global"
 	"os"
 	"path"
 	"time"
+
+	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
+	"go.uber.org/zap/zapcore"
 )
 
 var FileRotatelogs = new(fileRotatelogs)

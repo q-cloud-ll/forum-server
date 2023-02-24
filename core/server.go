@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"forum-server/global"
-	"forum-server/initialize"
-	"forum-server/service/system"
+	"forum/global"
+	"forum/initialize"
+	"forum/service/system"
 
 	"go.uber.org/zap"
 )
@@ -34,7 +34,7 @@ func RunWindowsServer() {
 	// 保证文本顺序输出
 	// In order to ensure that the text order output can be deleted
 	time.Sleep(10 * time.Microsecond)
-	global.GVA_LOG.Info("forum-server run success on ", zap.String("address", address))
+	global.GVA_LOG.Info("forum run success on ", zap.String("address", address))
 
 	fmt.Printf(`
 	欢迎使用 gin-vue-admin

@@ -3,8 +3,9 @@ package system
 import (
 	"context"
 
-	sysModel "forum-server/model/system"
-	"forum-server/service/system"
+	sysModel "forum/model/system"
+	"forum/service/system"
+
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )

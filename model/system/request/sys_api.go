@@ -1,8 +1,8 @@
 package request
 
 import (
-	"forum-server/model/common/request"
-	"forum-server/model/system"
+	"forum/model/common/request"
+	"forum/model/system"
 )
 
 // api分页条件查询及排序结构体

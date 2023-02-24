@@ -1,10 +1,11 @@
 package upload
 
 import (
-	"forum-server/global"
+	"forum/global"
+	"mime/multipart"
+
 	"github.com/huaweicloud/huaweicloud-sdk-go-obs/obs"
 	"github.com/pkg/errors"
-	"mime/multipart"
 )
 
 var HuaWeiObs = new(_obs)
