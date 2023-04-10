@@ -1,0 +1,5 @@
+[forum]2023/04/04 - 21:20:28.010	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
+[forum]2023/04/04 - 21:44:03.062	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/api/v1/forum/frm_user.go:24	FrmUserRegister param with invalid	{"error": "invalid character '}' looking for beginning of object key string"}
+[forum]2023/04/04 - 21:44:39.905	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection
+[forum]2023/04/04 - 21:44:53.982	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/api/v1/forum/frm_user.go:24	FrmUserRegister param with invalid	{"error": "invalid character '}' looking for beginning of object key string"}
+[forum]2023/04/04 - 21:50:13.662	[31merror[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:46	accept tcp [::]:8889: use of closed network connection

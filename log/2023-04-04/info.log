@@ -1,0 +1,26 @@
+[forum]2023/04/04 - 18:47:12.943	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:26	redis connect ping response:	{"pong": "PONG"}
+[forum]2023/04/04 - 18:47:13.024	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[forum]2023/04/04 - 18:47:13.032	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:97	router register success
+[forum]2023/04/04 - 18:47:13.033	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum run success on 	{"address": ":8889"}
+[forum]2023/04/04 - 19:07:12.026	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 19:07:12.128	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 19:27:12.041	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 19:27:12.168	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 19:47:12.034	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 19:47:12.138	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 20:07:12.048	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 20:07:12.153	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 20:27:12.036	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 20:27:12.200	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 20:47:12.001	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 20:47:12.104	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 21:07:12.009	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:101	定时任务执行
+[forum]2023/04/04 - 21:07:12.192	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/dao/redis/frm_vote.go:153	定时任务执行完成
+[forum]2023/04/04 - 21:40:25.187	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:26	redis connect ping response:	{"pong": "PONG"}
+[forum]2023/04/04 - 21:40:25.349	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[forum]2023/04/04 - 21:40:25.356	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:97	router register success
+[forum]2023/04/04 - 21:40:25.356	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum run success on 	{"address": ":8889"}
+[forum]2023/04/04 - 21:44:49.535	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/redis.go:26	redis connect ping response:	{"pong": "PONG"}
+[forum]2023/04/04 - 21:44:49.567	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:39	register swagger handler
+[forum]2023/04/04 - 21:44:49.571	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/initialize/router.go:97	router register success
+[forum]2023/04/04 - 21:44:49.571	[34minfo[0m	/Users/mac/gopath/src/gin-vue-admin/forum-server/core/server.go:37	forum run success on 	{"address": ":8889"}
