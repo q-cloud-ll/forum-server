@@ -6,12 +6,13 @@ import (
 	"strconv"
 	"time"
 
-	"forum-server/plugin/email/utils"
-	utils2 "forum-server/utils"
+	"forum/plugin/email/utils"
+	utils2 "forum/utils"
 
-	"forum-server/global"
-	"forum-server/model/system"
-	"forum-server/service"
+	"forum/global"
+	"forum/model/system"
+	"forum/service"
+
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

@@ -3,8 +3,9 @@ package system
 import (
 	"context"
 
+	"forum/service/system"
+
 	adapter "github.com/casbin/gorm-adapter/v3"
-	"forum-server/service/system"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )

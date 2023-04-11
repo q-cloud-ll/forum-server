@@ -1,13 +1,13 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/request"
-	"forum-server/model/common/response"
-	"forum-server/model/system"
-	systemReq "forum-server/model/system/request"
-	systemRes "forum-server/model/system/response"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/common/request"
+	"forum/model/common/response"
+	"forum/model/system"
+	systemReq "forum/model/system/request"
+	systemRes "forum/model/system/response"
+	"forum/utils"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

@@ -1,6 +1,6 @@
 package response
 
-import "forum-server/model/system"
+import "forum/model/system"
 
 type SysAuthorityResponse struct {
 	Authority system.SysAuthority `json:"authority"`

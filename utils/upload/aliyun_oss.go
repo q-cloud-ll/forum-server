@@ -5,7 +5,8 @@ import (
 	"mime/multipart"
 	"time"
 
-	"forum-server/global"
+	"forum/global"
+
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	"go.uber.org/zap"
 )

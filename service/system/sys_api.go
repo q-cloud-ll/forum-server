@@ -3,9 +3,9 @@ package system
 import (
 	"errors"
 	"fmt"
-	"forum-server/global"
-	"forum-server/model/common/request"
-	"forum-server/model/system"
+	"forum/global"
+	"forum/model/common/request"
+	"forum/model/system"
 
 	"gorm.io/gorm"
 )

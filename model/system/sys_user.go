@@ -1,8 +1,9 @@
 package system
 
 import (
-	"forum-server/global"
-	"github.com/satori/go.uuid"
+	"forum/global"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 type SysUser struct {

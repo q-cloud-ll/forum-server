@@ -1,8 +1,8 @@
 package request
 
 import (
-	"forum-server/model/{{.Package}}"
-	"forum-server/model/common/request"
+	"forum/model/{{.Package}}"
+	"forum/model/common/request"
 	"time"
 )
 

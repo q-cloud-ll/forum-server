@@ -3,7 +3,7 @@ package upload
 import (
 	"mime/multipart"
 
-	"forum-server/global"
+	"forum/global"
 )
 
 // OSS 对象存储接口

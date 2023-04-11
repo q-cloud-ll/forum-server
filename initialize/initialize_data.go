@@ -1,9 +1,9 @@
 package initialize
 
 import (
-	"forum-server/global"
-	"forum-server/model/forum"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/forum"
+	"forum/utils"
 )
 
 // InitMysqlCommunityData 用于初始化社区数据

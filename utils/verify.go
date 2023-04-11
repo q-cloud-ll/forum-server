@@ -20,5 +20,6 @@ var (
 	// ------ forum verify --------
 
 	CreatePostVerify = Rules{"CommunityId": {NotEmpty()}, "Content": {NotEmpty()}, "Title": {NotEmpty()}}
-	VotePostVerify   = Rules{"PostId": {NotEmpty()}, "Direction": {NotEmpty()}}
+	VotePostVerify   = Rules{"PostId": {NotEmpty()}}
+	CreateComment    = Rules{"Content": {NotEmpty()}}
 )

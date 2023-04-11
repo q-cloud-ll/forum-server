@@ -1,10 +1,11 @@
 package system
 
 import (
-	"forum-server/config"
-	"forum-server/global"
-	"forum-server/model/system"
-	"forum-server/utils"
+	"forum/config"
+	"forum/global"
+	"forum/model/system"
+	"forum/utils"
+
 	"go.uber.org/zap"
 )
 
@@ -38,7 +39,7 @@ func (systemConfigService *SystemConfigService) SetSystemConfig(system system.Sy
 //@author: [SliverHorn](https://github.com/SliverHorn)
 //@function: GetServerInfo
 //@description: 获取服务器信息
-//@return: forum-server *utils.Server, err error
+//@return: forum *utils.Server, err error
 
 func (systemConfigService *SystemConfigService) GetServerInfo() (server *utils.Server, err error) {
 	var s utils.Server

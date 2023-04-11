@@ -1,8 +1,8 @@
 package request
 
 import (
-	"forum-server/global"
-	"forum-server/model/system"
+	"forum/global"
+	"forum/model/system"
 )
 
 // Add menu authority info structure

@@ -1,12 +1,13 @@
 package forum
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	"forum-server/model/forum"
-	frmReq "forum-server/model/forum/request"
-	"forum-server/utils"
-	"forum-server/utils/xerr"
+	"forum/global"
+	"forum/model/common/response"
+	"forum/model/forum"
+	frmReq "forum/model/forum/request"
+	"forum/utils"
+	"forum/utils/xerr"
+	"strconv"
 
 	"go.uber.org/zap"
 
@@ -49,17 +50,40 @@ func (postApi *PostApi) FrmPostGetPostList(c *gin.Context) {
 	}
 	// 参数校验
 	if err := c.ShouldBindQuery(p); err != nil {
-		global.GVA_LOG.Error("FrmPostGetPostList with invalid query", zap.Error(err))
+		global.GVA_LOG.Error("FrmPostGetPostList with invalid query,err:", zap.Error(err))
 		response.FailWithMessage(xerr.REUQEST_PARAM_ERROR, c)
 		return
 	}
 	// 将请求参数传入获取数据
-	data, err := postService.FrmPostGetPostList(p)
+	list, total, err := postService.FrmPostGetPostList(p)
 	if err != nil {
 		global.GVA_LOG.Error("获取帖子列表失败", zap.Error(err))
 		response.FailWithMessage(xerr.DB_ERROR, c)
 		return
 	}
 
-	response.OkWithData(data, c)
+	response.OkWithDetailed(response.PageResult{
+		List:     list,
+		Total:    total,
+		Page:     int(p.Page),
+		PageSize: int(p.PageSize),
+	}, "查询成功", c)
+}
+
+// FrmPostDetail 获取帖子详情接口
+func (postApi *PostApi) FrmPostDetail(c *gin.Context) {
+	pidStr := c.Param("id")
+	pid, err := strconv.ParseInt(pidStr, 10, 64)
+	if err != nil {
+		global.GVA_LOG.Error("FrmPostDetail with param invalid", zap.Error(err))
+		response.FailWithMessage(xerr.REUQEST_PARAM_ERROR, c)
+		return
+	}
+	data, err := postService.FrmPostDetail(pid)
+	if err != nil {
+		global.GVA_LOG.Error("获取帖子详情失败", zap.Error(err))
+		response.FailWithMessage(xerr.DB_ERROR, c)
+		return
+	}
+	response.OkWithDetailed(data, "获取成功", c)
 }

@@ -6,13 +6,15 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"forum-server/config"
+	"forum/config"
+
 	"github.com/gookit/color"
 
-	"forum-server/utils"
+	"forum/utils"
 
-	"forum-server/global"
-	"forum-server/model/system/request"
+	"forum/global"
+	"forum/model/system/request"
+
 	uuid "github.com/satori/go.uuid"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

@@ -7,7 +7,8 @@ import (
 	"mime/multipart"
 	"time"
 
-	"forum-server/global"
+	"forum/global"
+
 	"github.com/qiniu/api.v7/v7/auth/qbox"
 	"github.com/qiniu/api.v7/v7/storage"
 	"go.uber.org/zap"

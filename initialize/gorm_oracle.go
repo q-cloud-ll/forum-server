@@ -2,9 +2,9 @@ package initialize
 
 import (
 	//"github.com/dzwvip/oracle"
-	"forum-server/config"
-	"forum-server/global"
-	"forum-server/initialize/internal"
+	"forum/config"
+	"forum/global"
+	"forum/initialize/internal"
 
 	//_ "github.com/godror/godror"
 	"gorm.io/driver/mysql"

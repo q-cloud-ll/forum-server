@@ -1,12 +1,13 @@
 package middleware
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	"forum-server/service"
-	"forum-server/utils"
-	"github.com/gin-gonic/gin"
+	"forum/global"
+	"forum/model/common/response"
+	"forum/service"
+	"forum/utils"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 var casbinService = service.ServiceGroupApp.SystemServiceGroup.CasbinService

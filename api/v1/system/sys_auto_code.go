@@ -7,10 +7,11 @@ import (
 	"os"
 	"strings"
 
-	"forum-server/global"
-	"forum-server/model/common/response"
-	"forum-server/model/system"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/common/response"
+	"forum/model/system"
+	"forum/utils"
+
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 

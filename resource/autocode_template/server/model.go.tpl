@@ -2,7 +2,7 @@
 package {{.Package}}
 
 import (
-	"forum-server/global"
+	"forum/global"
 	{{ if .HasTimer }}"time"{{ end }}
 )
 

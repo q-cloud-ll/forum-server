@@ -8,8 +8,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"forum-server/global"
-	"forum-server/model/common/response"
+	"forum/global"
+	"forum/model/common/response"
+
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,8 +1,9 @@
 package initialize
 
 import (
-	"forum-server/config"
-	"forum-server/global"
+	"forum/config"
+	"forum/global"
+
 	"gorm.io/gorm"
 )
 

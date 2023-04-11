@@ -4,7 +4,8 @@ import (
 	"context"
 	"time"
 
-	"forum-server/global"
+	"forum/global"
+
 	"github.com/mojocn/base64Captcha"
 	"go.uber.org/zap"
 )

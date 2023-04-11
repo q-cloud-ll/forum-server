@@ -1,9 +1,10 @@
 package initialize
 
 import (
-	"forum-server/config"
-	"forum-server/global"
-	"forum-server/initialize/internal"
+	"forum/config"
+	"forum/global"
+	"forum/initialize/internal"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

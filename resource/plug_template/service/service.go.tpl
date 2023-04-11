@@ -2,7 +2,7 @@ package service
 
  {{- if .NeedModel }}
 import (
-   "forum-server/plugin/{{ .Snake}}/model"
+   "forum/plugin/{{ .Snake}}/model"
 )
 {{ end }}
 

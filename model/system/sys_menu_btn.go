@@ -1,6 +1,6 @@
 package system
 
-import "forum-server/global"
+import "forum/global"
 
 type SysBaseMenuBtn struct {
 	global.GVA_MODEL

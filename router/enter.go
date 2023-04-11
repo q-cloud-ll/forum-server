@@ -1,15 +1,13 @@
 package router
 
 import (
-	"forum-server/router/example"
-	"forum-server/router/forum"
-	"forum-server/router/system"
+	"forum/router/forum"
+	"forum/router/system"
 )
 
 type RouterGroup struct {
-	System  system.RouterGroup
-	Example example.RouterGroup
-	Forum   forum.RouterGroup
+	System system.RouterGroup
+	Forum  forum.RouterGroup
 }
 
 var RouterGroupApp = new(RouterGroup)

@@ -1,12 +1,10 @@
 package mysql
 
 import (
-	"forum-server/global"
-	"forum-server/model/forum"
+	"forum/global"
+	"forum/model/forum"
 
 	"gorm.io/gorm/clause"
-
-	uuid "github.com/satori/go.uuid"
 )
 
 // FrmPostCreatePost 插入帖子数据
@@ -14,6 +12,17 @@ func FrmPostCreatePost(p *forum.FrmPost) (err error) {
 	return global.GVA_DB.Table("frm_posts").
 		Create(&p).
 		Error
+}
+
+// FrmJudgeCommunityIsExist 判断社区是否存在
+func FrmJudgeCommunityIsExist(communityId int64) (isExists bool, err error) {
+	var total int64
+	err = global.GVA_DB.Table("frm_communities").Select("community_id").Where("community_id = ?", communityId).Count(&total).Error
+	if total == 0 {
+		return true, err
+	} else {
+		return false, err
+	}
 }
 
 // FrmGetPostListByIds 通过ids查询帖子列表
@@ -34,13 +43,11 @@ func FrmGetPostListByIds(ids []string) (postList []*forum.FrmPost, err error) {
 	return list, err
 }
 
-// FrmGetUserById 根据uuid查询用户信息
-func FrmGetUserById(uuid uuid.UUID) (user *forum.FrmUser, err error) {
-	var u *forum.FrmUser
-	err = global.GVA_DB.Table("frm_users").
-		Select("user_id, nickname").
-		Where("user_id = ?", uuid).
-		Find(&u).
-		Error
-	return u, err
+// FrmGetPostById 根据帖子
+func FrmGetPostById(pid int64) (post *forum.FrmPost, err error) {
+	err = global.GVA_DB.Table("frm_posts").
+		Select("post_id, content, like_num, author_id, title,community_id,created_at").
+		Where("post_id = ?", pid).
+		Find(&post).Error
+	return
 }

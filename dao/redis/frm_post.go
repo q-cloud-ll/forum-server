@@ -1,8 +1,8 @@
 package redis
 
 import (
-	"forum-server/global"
-	frmReq "forum-server/model/forum/request"
+	"forum/global"
+	frmReq "forum/model/forum/request"
 	"strconv"
 	"time"
 
@@ -47,26 +47,6 @@ func getIdsFormKey(key string, page, size int64) ([]string, error) {
 	end := start + size - 1
 
 	return global.GVA_REDIS.ZRevRange(ctx, key, start, end).Result()
-}
-
-// FrmGetPostVoteData 获取投票数据
-func FrmGetPostVoteData(ids []string) (data []int64, err error) {
-	pipeline := global.GVA_REDIS.Pipeline()
-	// 查询获取赞成票的id
-	for _, id := range ids {
-		key := getRedisKey(KeyPostVotedZSetPF + id)
-		pipeline.ZCount(ctx, key, "1", "1")
-	}
-	cmders, err := pipeline.Exec(ctx)
-	if err != nil {
-		return nil, err
-	}
-	data = make([]int64, 0, len(cmders))
-	for _, cmder := range cmders {
-		v := cmder.(*redis.IntCmd).Val()
-		data = append(data, v)
-	}
-	return
 }
 
 // FrmGetCommunityPostIdsInOrder 根据社区查询帖子id

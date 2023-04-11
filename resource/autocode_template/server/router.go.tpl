@@ -1,8 +1,8 @@
 package {{.Package}}
 
 import (
-	"forum-server/api/v1"
-	"forum-server/middleware"
+	"forum/api/v1"
+	"forum/middleware"
 	"github.com/gin-gonic/gin"
 )
 

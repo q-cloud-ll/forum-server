@@ -3,12 +3,12 @@ package forum
 import (
 	"errors"
 	"fmt"
-	"forum-server/dao/mysql"
-	"forum-server/global"
-	"forum-server/model/forum"
-	FrmUserReq "forum-server/model/forum/request"
-	"forum-server/utils"
-	"forum-server/utils/tool"
+	"forum/dao/mysql"
+	"forum/global"
+	"forum/model/forum"
+	FrmUserReq "forum/model/forum/request"
+	"forum/utils"
+	"forum/utils/tool"
 
 	uuid "github.com/satori/go.uuid"
 

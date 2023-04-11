@@ -1,7 +1,7 @@
 package request
 
 import (
-	"forum-server/model/system"
+	"forum/model/system"
 )
 
 // Register User register structure

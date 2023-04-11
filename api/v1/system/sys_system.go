@@ -1,11 +1,11 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	"forum-server/model/system"
-	systemRes "forum-server/model/system/response"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/common/response"
+	"forum/model/system"
+	systemRes "forum/model/system/response"
+	"forum/utils"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -85,5 +85,5 @@ func (s *SystemApi) GetServerInfo(c *gin.Context) {
 		response.FailWithMessage("获取失败", c)
 		return
 	}
-	response.OkWithDetailed(gin.H{"forum-server": server}, "获取成功", c)
+	response.OkWithDetailed(gin.H{"forum": server}, "获取成功", c)
 }

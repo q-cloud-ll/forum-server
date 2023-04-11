@@ -3,9 +3,9 @@ package main
 import (
 	"go.uber.org/zap"
 
-	"forum-server/core"
-	"forum-server/global"
-	"forum-server/initialize"
+	"forum/core"
+	"forum/global"
+	"forum/initialize"
 )
 
 //go:generate go env -w GO111MODULE=on
@@ -28,13 +28,12 @@ func main() {
 	global.GVA_DB = initialize.Gorm() // gorm连接数据库
 	initialize.Timer()
 	initialize.DBList()
-	initialize.InitSnowflake()
 	if global.GVA_DB != nil {
-		initialize.RegisterTables(global.GVA_DB) // 初始化表
+		//initialize.RegisterTables(global.GVA_DB) // 初始化表
 		// 程序结束前关闭数据库链接
 		db, _ := global.GVA_DB.DB()
 		defer db.Close()
 	}
-	initialize.InitMysqlCommunityData()
+	//initialize.InitMysqlCommunityData()
 	core.RunWindowsServer()
 }

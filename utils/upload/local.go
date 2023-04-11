@@ -9,8 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"forum-server/global"
-	"forum-server/utils"
+	"forum/global"
+	"forum/utils"
+
 	"go.uber.org/zap"
 )
 

@@ -1,7 +1,7 @@
 package service
 
 import (
-	"forum-server/plugin/email/utils"
+	"forum/plugin/email/utils"
 )
 
 type EmailService struct{}

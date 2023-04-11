@@ -3,16 +3,17 @@ package core
 import (
 	"flag"
 	"fmt"
-	"forum-server/core/internal"
-	"github.com/gin-gonic/gin"
+	"forum/core/internal"
 	"os"
 	"path/filepath"
+
+	"github.com/gin-gonic/gin"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 
-	"forum-server/global"
-	_ "forum-server/packfile"
+	"forum/global"
+	_ "forum/packfile"
 )
 
 // Viper //

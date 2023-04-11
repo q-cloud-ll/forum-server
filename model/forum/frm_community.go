@@ -1,13 +1,13 @@
 package forum
 
 import (
-	"forum-server/global"
+	"forum/global"
 	"time"
 )
 
 type FrmCommunity struct {
 	global.GVA_MODEL
-	CommunityId   int64  `json:"community" gorm:"not null;unique;comment:社区id"`
+	CommunityId   int64  `json:"community_id" forum:"community_id" gorm:"not null;unique;comment:社区id"`
 	CommunityName string `json:"community_name" gorm:"not null;unique;comment:社区名"`
 	Introduction  string `json:"introduction,omitempty" gorm:"not null;comment:社区介绍"`
 }

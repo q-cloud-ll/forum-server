@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"time"
 
-	"forum-server/global"
+	"forum/global"
 
 	"github.com/tencentyun/cos-go-sdk-v5"
 	"go.uber.org/zap"

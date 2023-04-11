@@ -23,11 +23,11 @@ import (
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 
-	"forum-server/resource/autocode_template/subcontract"
+	"forum/resource/autocode_template/subcontract"
 
-	"forum-server/global"
-	"forum-server/model/system"
-	"forum-server/utils"
+	"forum/global"
+	"forum/model/system"
+	"forum/utils"
 
 	"gorm.io/gorm"
 )
@@ -94,7 +94,7 @@ func Init(Package string) {
 		packageServiceName: {
 			path: filepath.Join(global.GVA_CONFIG.AutoCode.Root,
 				global.GVA_CONFIG.AutoCode.Server, "service", "enter.go"),
-			importCodeF:  "github.com/flipped-aurora/gin-vue-admin/forum-server/%s/%s",
+			importCodeF:  "github.com/flipped-aurora/gin-vue-admin/forum/%s/%s",
 			packageNameF: "%s",
 			groupName:    "ServiceGroup",
 			structNameF:  "%sServiceGroup",
@@ -102,7 +102,7 @@ func Init(Package string) {
 		packageRouterName: {
 			path: filepath.Join(global.GVA_CONFIG.AutoCode.Root,
 				global.GVA_CONFIG.AutoCode.Server, "router", "enter.go"),
-			importCodeF:  "github.com/flipped-aurora/gin-vue-admin/forum-server/%s/%s",
+			importCodeF:  "github.com/flipped-aurora/gin-vue-admin/forum/%s/%s",
 			packageNameF: "%s",
 			groupName:    "RouterGroup",
 			structNameF:  "%s",
@@ -110,7 +110,7 @@ func Init(Package string) {
 		packageAPIName: {
 			path: filepath.Join(global.GVA_CONFIG.AutoCode.Root,
 				global.GVA_CONFIG.AutoCode.Server, "api/v1", "enter.go"),
-			importCodeF:  "github.com/flipped-aurora/gin-vue-admin/forum-server/%s/%s",
+			importCodeF:  "github.com/flipped-aurora/gin-vue-admin/forum/%s/%s",
 			packageNameF: "%s",
 			groupName:    "ApiGroup",
 			structNameF:  "%sApiGroup",
@@ -329,7 +329,7 @@ func (autoCodeService *AutoCodeService) CreateTemp(autoCode system.AutoCodeStruc
 			global.GVA_CONFIG.AutoCode.Server, global.GVA_CONFIG.AutoCode.SInitialize, "gorm.go")
 		var routePath = filepath.Join(global.GVA_CONFIG.AutoCode.Root,
 			global.GVA_CONFIG.AutoCode.Server, global.GVA_CONFIG.AutoCode.SInitialize, "router.go")
-		var imporStr = fmt.Sprintf("github.com/flipped-aurora/gin-vue-admin/forum-server/model/%s", autoCode.Package)
+		var imporStr = fmt.Sprintf("github.com/flipped-aurora/gin-vue-admin/forum/model/%s", autoCode.Package)
 		_ = ImportReference(routePath, "", "", autoCode.Package, "")
 		_ = ImportReference(gormPath, imporStr, "", "", "")
 
@@ -423,7 +423,7 @@ func (autoCodeService *AutoCodeService) addAutoMoveFile(data *tplData) {
 	if n <= 2 {
 		return
 	}
-	if strings.Contains(fileSlice[1], "forum-server") {
+	if strings.Contains(fileSlice[1], "forum") {
 		if strings.Contains(fileSlice[n-2], "router") {
 			data.autoMoveFilePath = filepath.Join(global.GVA_CONFIG.AutoCode.Root, global.GVA_CONFIG.AutoCode.Server,
 				fmt.Sprintf(global.GVA_CONFIG.AutoCode.SRouter, data.autoPackage), base)
@@ -896,7 +896,7 @@ func (autoCodeService *AutoCodeService) InstallPlugin(file *multipart.FileHeader
 		if ln < 2 {
 			continue
 		}
-		if pathArr[ln-2] == "forum-server" && pathArr[ln-1] == "plugin" {
+		if pathArr[ln-2] == "forum" && pathArr[ln-1] == "plugin" {
 			serverIndex = i
 		}
 		if pathArr[ln-2] == "web" && pathArr[ln-1] == "plugin" {
@@ -936,13 +936,15 @@ func installation(path string, formPath string, toPath string) error {
 		zap.L().Error("autoPath 已存在同名插件，请自行手动安装", zap.String("to", to))
 		return errors.New(toPath + "已存在同名插件，请自行手动安装")
 	}
-	return cp.Copy(form, to, cp.Options{Skip: skipMacSpecialDocument})
+	return cp.Copy(form, to, cp.Options{
+		Skip: skipMacSpecialDocument,
+	})
 }
 
 func filterFile(paths []string) []string {
 	np := make([]string, 0, len(paths))
 	for _, path := range paths {
-		if ok, _ := skipMacSpecialDocument(path); ok {
+		if ok, _ := skipMacSpecialDocument(nil, path, ""); ok {
 			continue
 		}
 		np = append(np, path)
@@ -950,7 +952,7 @@ func filterFile(paths []string) []string {
 	return np
 }
 
-func skipMacSpecialDocument(src string) (bool, error) {
+func skipMacSpecialDocument(srcinfo os.FileInfo, src, dest string) (bool, error) {
 	if strings.Contains(src, ".DS_Store") || strings.Contains(src, "__MACOSX") {
 		return true, nil
 	}

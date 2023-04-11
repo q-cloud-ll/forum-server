@@ -5,10 +5,11 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"forum-server/global"
-	"forum-server/model/system/request"
-	"gorm.io/gorm"
+	"forum/global"
+	"forum/model/system/request"
 	"sort"
+
+	"gorm.io/gorm"
 )
 
 const (

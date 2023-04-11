@@ -1,10 +1,10 @@
 package api
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-{{ if .NeedModel }}	"forum-server/plugin/{{ .Snake}}/model" {{ end }}
-	"forum-server/plugin/{{ .Snake}}/service"
+	"forum/global"
+	"forum/model/common/response"
+{{ if .NeedModel }}	"forum/plugin/{{ .Snake}}/model" {{ end }}
+	"forum/plugin/{{ .Snake}}/service"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

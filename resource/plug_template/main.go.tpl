@@ -2,9 +2,9 @@ package {{ .Snake}}
 
 import (
 {{- if .HasGlobal }}
-	"forum-server/plugin/{{ .Snake}}/global"
+	"forum/plugin/{{ .Snake}}/global"
 {{- end }}
-	"forum-server/plugin/{{ .Snake}}/router"
+	"forum/plugin/{{ .Snake}}/router"
 	"github.com/gin-gonic/gin"
 )
 

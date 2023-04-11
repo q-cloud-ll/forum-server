@@ -1,18 +1,20 @@
 package forum
 
-import (
-	"forum-server/global"
+import "forum/global"
 
-	"github.com/google/uuid"
-)
-
+// FrmComment 评论表
 type FrmComment struct {
 	global.GVA_MODEL
-	CommentId int64     `json:"comment_id" gorm:"index;not null;unique;comment:评论id"`
-	PostId    int64     `json:"post_id"`
-	Type      int       `json:"type"   gorm:"size:5"`
-	LikeNum   int       `json:"like_num"`
-	ReplyId   int       `json:"reply_id"`
-	UserId    uuid.UUID `json:"user_id"  gorm:"not null"`
-	Content   string    `json:"content"   binding:"required"  gorm:"not null;type:longtext"`
+	CommentId int64  `json:"comment_id" gorm:"index;not null;unique;comment:评论id"`
+	PostId    int64  `json:"post_id" gorm:"index;not null;comment:帖子id"`
+	ReplyId   int64  `json:"reply_id" gorm:"index;not null"`
+	Pid       int64  `json:"pid" gorm:"index;not null";comment:父id`
+	UserId    string `json:"user_id" gorm:"index;not null;comment:用户id"`
+	Content   string `json:"content" gorm:"not null"`
+}
+
+type FrmUserInfo struct {
+	UserId   string `json:"user_id"`
+	Nickname string `json:"nickname"`
+	Avatar   string `json:"avatar"`
 }

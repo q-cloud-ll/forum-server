@@ -3,7 +3,8 @@ package internal
 import (
 	"fmt"
 
-	"forum-server/global"
+	"forum/global"
+
 	"gorm.io/gorm/logger"
 )
 

@@ -1,8 +1,9 @@
 package utils
 
 import (
-	"forum-server/global"
-	systemReq "forum-server/model/system/request"
+	"forum/global"
+	systemReq "forum/model/system/request"
+
 	"github.com/gin-gonic/gin"
 	uuid "github.com/satori/go.uuid"
 )

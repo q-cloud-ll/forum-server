@@ -6,8 +6,8 @@ import (
 
 	jwt "github.com/golang-jwt/jwt/v4"
 
-	"forum-server/global"
-	"forum-server/model/system/request"
+	"forum/global"
+	"forum/model/system/request"
 )
 
 type JWT struct {

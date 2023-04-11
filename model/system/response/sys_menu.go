@@ -1,6 +1,6 @@
 package response
 
-import "forum-server/model/system"
+import "forum/model/system"
 
 type SysMenusResponse struct {
 	Menus []system.SysMenu `json:"menus"`

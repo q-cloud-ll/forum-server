@@ -1,16 +1,16 @@
 package global
 
 import (
+	"forum/utils/timer"
 	"sync"
 
-	"forum-server/utils/timer"
+	"github.com/silenceper/wechat/v2/officialaccount"
 	"github.com/songzhibin97/gkit/cache/local_cache"
-
 	"golang.org/x/sync/singleflight"
 
 	"go.uber.org/zap"
 
-	"forum-server/config"
+	"forum/config"
 
 	"github.com/go-redis/redis/v8"
 	"github.com/spf13/viper"
@@ -27,6 +27,7 @@ var (
 	GVA_LOG                 *zap.Logger
 	GVA_Timer               timer.Timer = timer.NewTimerTask()
 	GVA_Concurrency_Control             = &singleflight.Group{}
+	GVA_WX                  *officialaccount.OfficialAccount
 
 	BlackCache local_cache.Cache
 	lock       sync.RWMutex

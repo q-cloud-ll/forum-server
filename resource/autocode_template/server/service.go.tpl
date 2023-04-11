@@ -1,10 +1,10 @@
 package {{.Package}}
 
 import (
-	"forum-server/global"
-	"forum-server/model/{{.Package}}"
-	"forum-server/model/common/request"
-    {{.Package}}Req "forum-server/model/{{.Package}}/request"
+	"forum/global"
+	"forum/model/{{.Package}}"
+	"forum/model/common/request"
+    {{.Package}}Req "forum/model/{{.Package}}/request"
     {{- if .AutoCreateResource }}
     "gorm.io/gorm"
     {{- end}}

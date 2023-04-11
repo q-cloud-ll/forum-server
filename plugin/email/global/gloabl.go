@@ -1,5 +1,5 @@
 package global
 
-import "forum-server/plugin/email/config"
+import "forum/plugin/email/config"
 
 var GlobalConfig = new(config.Email)

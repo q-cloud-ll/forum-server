@@ -1,9 +1,10 @@
 package system
 
 import (
-	"forum-server/global"
-	"forum-server/model/common/response"
-	systemRes "forum-server/model/system/response"
+	"forum/global"
+	"forum/model/common/response"
+	systemRes "forum/model/system/response"
+
 	"github.com/gin-gonic/gin"
 	"github.com/mojocn/base64Captcha"
 	"go.uber.org/zap"

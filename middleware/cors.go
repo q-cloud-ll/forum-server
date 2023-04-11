@@ -1,10 +1,11 @@
 package middleware
 
 import (
-	"forum-server/config"
-	"forum-server/global"
-	"github.com/gin-gonic/gin"
+	"forum/config"
+	"forum/global"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 // Cors 直接放行所有跨域请求并放行所有 OPTIONS 方法

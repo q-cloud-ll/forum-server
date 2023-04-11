@@ -1,7 +1,7 @@
 package forum
 
 import (
-	v1 "forum-server/api/v1"
+	v1 "forum/api/v1"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,6 +21,7 @@ func (p *PostRouter) InitPostRouterPublic(router *gin.RouterGroup) {
 	postRouter := router.Group("post")
 	frmPostApi := v1.ApiGroupApp.ForumApiGroup.PostApi
 	{
+		postRouter.GET("getPostDetail/:id", frmPostApi.FrmPostDetail)
 		postRouter.GET("postList", frmPostApi.FrmPostGetPostList)
 	}
 }

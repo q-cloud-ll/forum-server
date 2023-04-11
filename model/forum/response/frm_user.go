@@ -1,7 +1,7 @@
 package response
 
 import (
-	"forum-server/model/forum"
+	"forum/model/forum"
 )
 
 type LoginResponse struct {

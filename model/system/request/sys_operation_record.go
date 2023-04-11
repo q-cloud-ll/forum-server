@@ -1,8 +1,8 @@
 package request
 
 import (
-	"forum-server/model/common/request"
-	"forum-server/model/system"
+	"forum/model/common/request"
+	"forum/model/system"
 )
 
 type SysOperationRecordSearch struct {

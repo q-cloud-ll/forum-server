@@ -2,9 +2,10 @@ package initialize
 
 import (
 	"github.com/songzhibin97/gkit/cache/local_cache"
+	"go.uber.org/zap"
 
-	"forum-server/global"
-	"forum-server/utils"
+	"forum/global"
+	"forum/utils"
 )
 
 func OtherInit() {
@@ -16,7 +17,11 @@ func OtherInit() {
 	if err != nil {
 		panic(err)
 	}
-
+	err = InitWx()
+	if err != nil {
+		global.GVA_LOG.Error("InitWx failed,err:", zap.Error(err))
+	}
+	InitSnowflake()
 	global.BlackCache = local_cache.NewCache(
 		local_cache.SetDefaultExpire(dr),
 	)
